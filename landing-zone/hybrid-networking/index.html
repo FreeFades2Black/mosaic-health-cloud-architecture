@@ -774,17 +774,17 @@
         ManagementSpoke["Spoke: Platform &amp; SIEM<br/>(10.240.128.0/20)<br/>Sentinel, Bastion, AD DS"]
     end
 
-    HospitalEdge ==&gt;|Primary 10G ER Circuit| ERGW1
+    HospitalEdge --&gt;|Primary 10G ER Circuit| ERGW1
     HospitalEdge -.-&gt;|Secondary 10G ER Circuit| ERGW2
-    ClinicEdge ==&gt;|Active S2S IPsec| VPNGW1
+    ClinicEdge --&gt;|Active S2S IPsec| VPNGW1
     ClinicEdge -.-&gt;|Failover S2S IPsec| VPNGW2
-    MCOpsEdge ==&gt;|Multi-Cloud Transit| VPNGW1
+    MCOpsEdge --&gt;|Multi-Cloud Transit| VPNGW1
 
-    vWANHub1 &lt;===&gt;|Global vWAN Inter-Hub Peering| vWANHub2
+    vWANHub1 &lt;--&gt;|"Global vWAN Inter-Hub Peering"| vWANHub2
 
-    AzFW1 &lt;==&gt;|Secured Routing Intent (0.0.0.0/0 &amp; RFC1918)| ClinicalSpoke
-    AzFW1 &lt;==&gt;|Secured Routing Intent| AnalyticsSpoke
-    AzFW1 &lt;==&gt;|Secured Routing Intent| ManagementSpoke
+    AzFW1 &lt;--&gt;|"Secured Routing Intent (RFC1918)"| ClinicalSpoke
+    AzFW1 &lt;--&gt;|"Secured Routing Intent"| AnalyticsSpoke
+    AzFW1 &lt;--&gt;|"Secured Routing Intent"| ManagementSpoke
 </div>
 <hr/>
 <h2 id="2-enterprise-ip-addressing-architecture-non-overlapping-cidr">2. Enterprise IP Addressing Architecture (Non-Overlapping CIDR)<a class="headerlink" href="#2-enterprise-ip-addressing-architecture-non-overlapping-cidr" title="Permanent link">¶</a></h2>
