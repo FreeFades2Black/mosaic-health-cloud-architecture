@@ -1,0 +1,23 @@
+# ==============================================================================
+# MOSAIC HEALTHCARE CLOUD ARCHITECTURE PORTAL - DOCKER COMPOSE
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  architecture-portal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mosaic-health-architecture-portal
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8000/healthz"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
