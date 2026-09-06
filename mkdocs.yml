@@ -1,0 +1,127 @@
+# ==============================================================================
+# MOSAIC HEALTHCARE ENTERPRISE CLOUD ARCHITECTURE & M&A GOVERNANCE PORTAL
+# MkDocs Material Configuration - Single Source of Truth for Enterprise Landing Zone
+# ==============================================================================
+
+site_name: Mosaic Health Cloud Architecture & M&A Governance Portal
+site_description: Single Source of Truth for Enterprise Azure Landing Zone, M&A Due Diligence, HITRUST CSF Controls, and Architecture Decision Records (ADRs).
+site_author: Mosaic Healthcare Enterprise Architecture Review Board (ARB)
+site_url: https://freefades2black.github.io/mosaic-health-cloud-architecture/
+repo_url: https://github.com/FreeFades2Black/mosaic-health-cloud-architecture
+repo_name: FreeFades2Black/mosaic-health-cloud-architecture
+copyright: "Copyright &copy; 2026 Mosaic Healthcare Enterprise Architecture & Infrastructure Operations. All rights reserved."
+
+# ------------------------------------------------------------------------------
+# THEME CONFIGURATION (Material for MkDocs)
+# ------------------------------------------------------------------------------
+theme:
+  name: material
+  language: en
+  palette:
+    # Light mode palette
+    - scheme: default
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+    # Dark mode palette
+    - scheme: slate
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+# ------------------------------------------------------------------------------
+# EXTRA CSS / JAVASCRIPT
+# ------------------------------------------------------------------------------
+extra_css:
+  - stylesheets/extra.css
+
+# ------------------------------------------------------------------------------
+# PLUGINS
+# ------------------------------------------------------------------------------
+plugins:
+  - search
+  - mermaid2:
+      arguments:
+        theme: dark
+
+# ------------------------------------------------------------------------------
+# MARKDOWN EXTENSIONS
+# ------------------------------------------------------------------------------
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - tables
+  - attr_list
+  - md_in_html
+  - def_list
+  - toc:
+      permalink: true
+
+# ------------------------------------------------------------------------------
+# NAVIGATION STRUCTURE
+# ------------------------------------------------------------------------------
+nav:
+  - Architecture Portal Home: index.md
+  - Azure Landing Zone:
+      - Overview & Architecture: landing-zone/index.md
+      - Management Group Hierarchy: landing-zone/management-groups.md
+      - Hybrid Networking & vWAN: landing-zone/hybrid-networking.md
+      - Identity, Entra ID & PIM: landing-zone/identity-access.md
+  - M&A Migration Engine:
+      - M&A Playbook Overview: ma-playbook/index.md
+      - Due Diligence Checklist: ma-playbook/due-diligence-checklist.md
+      - Wave Migration Sequencer: ma-playbook/wave-migration-sequencer.md
+  - Compliance & HITRUST:
+      - Governance & Compliance: compliance-hitrust/index.md
+      - Control Mapping Matrix: compliance-hitrust/control-mapping-matrix.md
+      - Audit Evidence & Logging: compliance-hitrust/audit-evidence-logging.md
+  - Multi-Cloud Rosetta Stone:
+      - Rosetta Stone Overview: multicloud-matrix/index.md
+      - AWS vs GCP vs Azure: multicloud-matrix/aws-gcp-azure-mapping.md
+      - Rationalization Framework: multicloud-matrix/migration-rationalization.md
+  - Architecture Decision Records:
+      - ARB Decision Registry: arb-adrs/index.md
+      - ADR-001 vWAN Ingress: arb-adrs/adr-001-vwan-hub-spoke.md
+      - ADR-002 Key Vault CMK: arb-adrs/adr-002-key-vault-cmk.md
+      - ADR-003 Tenant Consolidation: arb-adrs/adr-003-tenant-consolidation.md
+  - Terraform Blueprints:
+      - Gunslinger Secure Vault: mosaic_key_vault_module.md
