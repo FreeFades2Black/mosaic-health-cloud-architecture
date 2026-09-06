@@ -1,0 +1,50 @@
+# --------------------------------------------------------------------------------------------------
+# GUNSLINGER DISPATCH: SANITIZED PRODUCTION TFVARS TEMPLATE
+# "Values carved in template iron; replace with subscription-specific resource coordinates."
+# --------------------------------------------------------------------------------------------------
+# File: terraform/gunslinger-secure-vault/terraform.tfvars.example
+# Purpose: Example variable values for deploying HITRUST-compliant Key Vault module.
+# --------------------------------------------------------------------------------------------------
+
+# Prefix for naming the Key Vault instance
+vault_prefix = "kv-mosaic"
+
+# Target deployment environment tier
+environment = "prod"
+
+# Target primary Azure region
+location = "eastus2"
+
+# Name of the hosting Azure Resource Group
+resource_group_name = "rg-mosaic-security-prod-01"
+
+# SKU tier: premium required for FIPS 140-2 Level 3 HSM keys
+sku_name = "premium"
+
+# Retention window in days for soft-deleted items (90 days mandatory for HIPAA)
+soft_delete_retention_days = 90
+
+# Purge protection enabled to prevent irreversible destruction
+purge_protection_enabled = true
+
+# Allow Azure Disk Encryption access
+enabled_for_disk_encryption = true
+
+# Resource ID of target Private Endpoint Subnet in Connectivity VNet
+private_endpoint_subnet_id = "/subscriptions/11112222-3333-4444-5555-666677778888/resourceGroups/rg-mosaic-network-prod-01/providers/Microsoft.Network/virtualNetworks/vnet-mosaic-clinical-prod-01/subnets/snet-private-endpoints"
+
+# Resource ID of Private DNS Zone (*.privatelink.vaultcore.azure.net)
+private_dns_zone_id = "/subscriptions/11112222-3333-4444-5555-666677778888/resourceGroups/rg-mosaic-network-prod-01/providers/Microsoft.Network/privateDnsZones/privatelink.vaultcore.azure.net"
+
+# Resource ID of Central Log Analytics Workspace for Sentinel SIEM ingestion
+log_analytics_workspace_id = "/subscriptions/11112222-3333-4444-5555-666677778888/resourceGroups/rg-mosaic-mgmt-prod-01/providers/Microsoft.OperationalInsights/workspaces/law-mosaic-mgmt-prod-01"
+
+# Mandatory governance resource tags
+tags = {
+  CostCenter         = "CC-94102-SECURITY-INFRA"
+  Owner              = "Cloud-Architecture-Board"
+  Environment        = "Production"
+  ComplianceScope    = "HIPAA-HITRUST-CSF-v11"
+  DataClassification = "PHI-Restricted"
+  Criticality        = "Mission-Critical-Tier-0"
+}
