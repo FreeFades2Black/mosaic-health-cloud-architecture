@@ -1,0 +1,116 @@
+/* ==============================================================================
+   MOSAIC HEALTHCARE ENTERPRISE CLOUD ARCHITECTURE PORTAL STYLESHEET
+   ============================================================================== */
+
+:root {
+  --md-primary-fg-color: #00897b;
+  --md-primary-fg-color--light: #4ebaaa;
+  --md-primary-fg-color--dark: #005b4f;
+  --md-accent-fg-color: #f4511e;
+  --md-code-font: "Roboto Mono", "Fira Code", monospace;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-default-bg-color: #0d1117;
+  --md-default-fg-color: #c9d1d9;
+  --md-default-fg-color--light: #8b949e;
+  --md-code-bg-color: #161b22;
+  --md-code-fg-color: #e6edf3;
+}
+
+/* Header & Brand Enhancements */
+.md-header {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.md-header__title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Badges & Status Tags */
+.badge {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-prod {
+  background-color: #1b5e20;
+  color: #a5d6a7;
+  border: 1px solid #2e7d32;
+}
+
+.badge-hipaa {
+  background-color: #0d47a1;
+  color: #90caf9;
+  border: 1px solid #1976d2;
+}
+
+.badge-hitrust {
+  background-color: #4a148c;
+  color: #ce93d8;
+  border: 1px solid #7b1fa2;
+}
+
+.badge-approved {
+  background-color: #004d40;
+  color: #80cbc4;
+  border: 1px solid #00796b;
+}
+
+/* Tables Custom Styling for Matrix Views */
+.md-typeset table:not([class]) {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: rgba(0, 137, 123, 0.15);
+  color: #00897b;
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 2px solid #00897b;
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: rgba(0, 137, 123, 0.25);
+  color: #4ebaaa;
+  border-bottom: 2px solid #00897b;
+}
+
+.md-typeset table:not([class]) td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+/* Mermaid Diagram Sizing & Styling */
+.mermaid {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+[data-md-color-scheme="slate"] .mermaid {
+  background-color: rgba(22, 27, 34, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Callouts / Admonitions */
+.md-typeset .admonition {
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}

@@ -1,0 +1,864 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Single Source of Truth for Enterprise Azure Landing Zone, M&amp;A Due Diligence, HITRUST CSF Controls, and Architecture Decision Records (ADRs)." name="description"/>
+<meta content="Mosaic Healthcare Enterprise Architecture Review Board (ARB)" name="author"/>
+<link href="https://freefades2black.github.io/mosaic-health-cloud-architecture/" rel="canonical"/>
+<link href="landing-zone/" rel="next"/>
+<link href="assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.7" name="generator"/>
+<title>Mosaic Health Cloud Architecture &amp; M&amp;A Governance Portal</title>
+<link href="assets/stylesheets/main.ec1eaa64.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="deep-orange" data-md-color-primary="teal" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#mosaic-healthcare-enterprise-cloud-architecture-ma-governance-portal">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Mosaic Health Cloud Architecture &amp; M&amp;A Governance Portal" class="md-header__button md-logo" data-md-component="logo" href="." title="Mosaic Health Cloud Architecture &amp; M&amp;A Governance Portal">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Mosaic Health Cloud Architecture &amp; M&amp;A Governance Portal
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Architecture Portal Home
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="deep-orange" data-md-color-media="" data-md-color-primary="teal" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="deep-orange" data-md-color-media="" data-md-color-primary="teal" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<a aria-label="Share" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="Share">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+</a>
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/FreeFades2Black/mosaic-health-cloud-architecture" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    FreeFades2Black/mosaic-health-cloud-architecture
+  </div>
+</a>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href=".">
+        
+  
+  
+    
+  
+  Architecture Portal Home
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="landing-zone/">
+          
+  
+  
+  Azure Landing Zone
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="ma-playbook/">
+          
+  
+  
+  M&amp;A Migration Engine
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="compliance-hitrust/">
+          
+  
+  
+  Compliance &amp; HITRUST
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="multicloud-matrix/">
+          
+  
+  
+  Multi-Cloud Rosetta Stone
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="arb-adrs/">
+          
+  
+  
+  Architecture Decision Records
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="mosaic_key_vault_module/">
+          
+  
+  
+  Terraform Blueprints
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Mosaic Health Cloud Architecture &amp; M&amp;A Governance Portal" class="md-nav__button md-logo" data-md-component="logo" href="." title="Mosaic Health Cloud Architecture &amp; M&amp;A Governance Portal">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Mosaic Health Cloud Architecture &amp; M&amp;A Governance Portal
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/FreeFades2Black/mosaic-health-cloud-architecture" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"></path></svg>
+</div>
+<div class="md-source__repository">
+    FreeFades2Black/mosaic-health-cloud-architecture
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Architecture Portal Home
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href=".">
+<span class="md-ellipsis">
+    
+  
+    Architecture Portal Home
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#executive-summary">
+<span class="md-ellipsis">
+      
+        Executive Summary
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#four-core-architecture-pillars">
+<span class="md-ellipsis">
+      
+        Four Core Architecture Pillars
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architecture-review-board-arb-decisions">
+<span class="md-ellipsis">
+      
+        Architecture Review Board (ARB) Decisions
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reference-infrastructure-as-code-terraform">
+<span class="md-ellipsis">
+      
+        Reference Infrastructure as Code (Terraform)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architectural-principles-guardrails">
+<span class="md-ellipsis">
+      
+        Architectural Principles &amp; Guardrails
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Azure Landing Zone
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Azure Landing Zone
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="landing-zone/">
+<span class="md-ellipsis">
+    
+  
+    Overview &amp; Architecture
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="landing-zone/management-groups/">
+<span class="md-ellipsis">
+    
+  
+    Management Group Hierarchy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="landing-zone/hybrid-networking/">
+<span class="md-ellipsis">
+    
+  
+    Hybrid Networking &amp; vWAN
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="landing-zone/identity-access/">
+<span class="md-ellipsis">
+    
+  
+    Identity, Entra ID &amp; PIM
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    M&amp;A Migration Engine
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    M&amp;A Migration Engine
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="ma-playbook/">
+<span class="md-ellipsis">
+    
+  
+    M&amp;A Playbook Overview
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="ma-playbook/due-diligence-checklist/">
+<span class="md-ellipsis">
+    
+  
+    Due Diligence Checklist
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="ma-playbook/wave-migration-sequencer/">
+<span class="md-ellipsis">
+    
+  
+    Wave Migration Sequencer
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Compliance &amp; HITRUST
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Compliance &amp; HITRUST
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="compliance-hitrust/">
+<span class="md-ellipsis">
+    
+  
+    Governance &amp; Compliance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="compliance-hitrust/control-mapping-matrix/">
+<span class="md-ellipsis">
+    
+  
+    Control Mapping Matrix
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="compliance-hitrust/audit-evidence-logging/">
+<span class="md-ellipsis">
+    
+  
+    Audit Evidence &amp; Logging
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Multi-Cloud Rosetta Stone
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Multi-Cloud Rosetta Stone
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="multicloud-matrix/">
+<span class="md-ellipsis">
+    
+  
+    Rosetta Stone Overview
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="multicloud-matrix/aws-gcp-azure-mapping/">
+<span class="md-ellipsis">
+    
+  
+    AWS vs GCP vs Azure
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="multicloud-matrix/migration-rationalization/">
+<span class="md-ellipsis">
+    
+  
+    Rationalization Framework
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Architecture Decision Records
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture Decision Records
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="arb-adrs/">
+<span class="md-ellipsis">
+    
+  
+    ARB Decision Registry
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="arb-adrs/adr-001-vwan-hub-spoke/">
+<span class="md-ellipsis">
+    
+  
+    ADR-001 vWAN Ingress
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="arb-adrs/adr-002-key-vault-cmk/">
+<span class="md-ellipsis">
+    
+  
+    ADR-002 Key Vault CMK
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="arb-adrs/adr-003-tenant-consolidation/">
+<span class="md-ellipsis">
+    
+  
+    ADR-003 Tenant Consolidation
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Terraform Blueprints
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Terraform Blueprints
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="mosaic_key_vault_module/">
+<span class="md-ellipsis">
+    
+  
+    Gunslinger Secure Vault
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#executive-summary">
+<span class="md-ellipsis">
+      
+        Executive Summary
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#four-core-architecture-pillars">
+<span class="md-ellipsis">
+      
+        Four Core Architecture Pillars
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architecture-review-board-arb-decisions">
+<span class="md-ellipsis">
+      
+        Architecture Review Board (ARB) Decisions
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reference-infrastructure-as-code-terraform">
+<span class="md-ellipsis">
+      
+        Reference Infrastructure as Code (Terraform)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architectural-principles-guardrails">
+<span class="md-ellipsis">
+      
+        Architectural Principles &amp; Guardrails
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="mosaic-healthcare-enterprise-cloud-architecture-ma-governance-portal">Mosaic Healthcare Enterprise Cloud Architecture &amp; M&amp;A Governance Portal<a class="headerlink" href="#mosaic-healthcare-enterprise-cloud-architecture-ma-governance-portal" title="Permanent link">¶</a></h1>
+<p><span class="badge badge-prod">Production Ready</span>
+<span class="badge badge-hitrust">HITRUST CSF v11</span>
+<span class="badge badge-hipaa">HIPAA Compliant</span>
+<span class="badge badge-approved">ARB Approved</span></p>
+<hr/>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">¶</a></h2>
+<p>Welcome to the <strong>Mosaic Healthcare Enterprise Cloud Architecture &amp; M&amp;A Governance Portal</strong>. This portal serves as the single source of truth for enterprise cloud engineers, security architects, clinical informatics directors, and executive leadership (CIO/CISO/CMO). </p>
+<p>As a multi-regional integrated healthcare delivery network spanning <strong>140+ acute care hospitals, regional medical centers, ambulatory surgical suites, and research facilities</strong>, Mosaic Healthcare requires an ultra-resilient, zero-trust cloud infrastructure capable of ingesting streaming EHR (HL7 v2 / FHIR R4), DICOM PACS imaging, and operational telemetry while strictly observing <strong>HIPAA Security &amp; Privacy Rules</strong> and <strong>HITRUST CSF v11</strong> controls.</p>
+<div class="mermaid">graph TD
+    subgraph "On-Premises Healthcare Edge"
+        Clinics["140+ Regional Clinics &amp; Ambulatory Care<br/>(Cisco SD-WAN / IPsec VPN)"]
+        Hospitals["Tier-1 Acute Hospitals<br/>(Dual ExpressRoute 10Gbps MACsec)"]
+        EdgeEMR["Local EHR Cache &amp; DICOM Modalities<br/>(PACS Edge Gateways)"]
+    end
+
+    subgraph "Azure Virtual WAN Global Hub-and-Spoke"
+        vWANHub["Azure Virtual WAN Global Hub<br/>(East US 2 &amp; Central US)"]
+        SecuredFW["Azure Firewall Premium<br/>(IDPS, TLS Inspection, FQDN Filtering)"]
+        vWANHub --&gt; SecuredFW
+    end
+
+    subgraph "Enterprise Platform Subscriptions"
+        Identity["Identity Subscription<br/>Entra ID Hybrid Sync / PIM / Domain Controllers"]
+        Mgmt["Management &amp; Governance<br/>Log Analytics / Microsoft Sentinel SIEM / Defender"]
+        Conn["Connectivity Subscription<br/>Private DNS Resolver / ExpressRoute Gateways"]
+    end
+
+    subgraph "Regulated Healthcare Workloads"
+        ClinicalLanding["Clinical Workload Subscriptions<br/>Epic / Cerner EHR Core (HIPAA Tier-1)"]
+        AnalyticsLanding["Lakehouse Analytics Subscriptions<br/>Databricks Unity Catalog / Delta Lake"]
+        KV["Gunslinger Key Vault<br/>FIPS 140-2 Level 3 HSM CMK"]
+    end
+
+    Clinics --&gt;|BGP Over IPsec VPN| vWANHub
+    Hospitals --&gt;|Dual ExpressRoute Circuit| vWANHub
+    EdgeEMR --&gt;|HL7 / FHIR Ingestion| vWANHub
+
+    SecuredFW --&gt; Identity
+    SecuredFW --&gt; Mgmt
+    SecuredFW --&gt; Conn
+    SecuredFW --&gt; ClinicalLanding
+    SecuredFW --&gt; AnalyticsLanding
+    ClinicalLanding --&gt; KV
+    AnalyticsLanding --&gt; KV
+</div>
+<hr/>
+<h2 id="four-core-architecture-pillars">Four Core Architecture Pillars<a class="headerlink" href="#four-core-architecture-pillars" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Pillar</th>
+<th style="text-align: left;">Focus Area</th>
+<th style="text-align: left;">Primary Artifacts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>1. Enterprise Azure Landing Zone</strong></td>
+<td style="text-align: left;">Foundation, Scale, Zero-Trust Isolation</td>
+<td style="text-align: left;"><a href="landing-zone/management-groups/">Management Group Hierarchy</a> • <a href="landing-zone/hybrid-networking/">Hybrid Networking &amp; vWAN</a> • <a href="landing-zone/identity-access/">Identity &amp; Access</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>2. M&amp;A Migration Engine</strong></td>
+<td style="text-align: left;">Acquisition Onboarding &amp; Rapid Cutover</td>
+<td style="text-align: left;"><a href="ma-playbook/due-diligence-checklist/">Due Diligence Checklist</a> • <a href="ma-playbook/wave-migration-sequencer/">Wave Migration Sequencer</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>3. Compliance &amp; HITRUST Governance</strong></td>
+<td style="text-align: left;">Regulatory Audit Readiness, Cryptography</td>
+<td style="text-align: left;"><a href="compliance-hitrust/control-mapping-matrix/">HITRUST Control Matrix</a> • <a href="compliance-hitrust/audit-evidence-logging/">Diagnostic Logging Pipeline</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>4. Multi-Cloud Rosetta Stone</strong></td>
+<td style="text-align: left;">Interoperability, Parity, Portability</td>
+<td style="text-align: left;"><a href="multicloud-matrix/aws-gcp-azure-mapping/">AWS / GCP / Azure Matrix</a> • <a href="multicloud-matrix/migration-rationalization/">Workload Rationalization</a></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="architecture-review-board-arb-decisions">Architecture Review Board (ARB) Decisions<a class="headerlink" href="#architecture-review-board-arb-decisions" title="Permanent link">¶</a></h2>
+<p>All structural modifications, cryptographic parameter selections, and network topology decisions are formally ratified via Architecture Decision Records (ADRs):</p>
+<ul>
+<li><strong><a href="arb-adrs/adr-001-vwan-hub-spoke/">ADR-001: Virtual WAN Secured Hub Adoption for 140+ Clinic Network Ingress</a></strong><br/>
+<em>Status: Accepted</em> — Replaced traditional distributed mesh peering with centrally managed Azure Virtual WAN Hub to reduce latency variance and enforce centralized TLS inspection.</li>
+<li><strong><a href="arb-adrs/adr-002-key-vault-cmk/">ADR-002: Customer-Managed Keys (CMK) via FIPS 140-2 Level 3 HSM for all PHI</a></strong><br/>
+<em>Status: Accepted</em> — Mandated RSA-4096 CMK with automated rotation in Azure Key Vault for all storage accounts, databases, and message brokers containing Protected Health Information.</li>
+<li><strong><a href="arb-adrs/adr-003-tenant-consolidation/">ADR-003: M&amp;A Tenant Consolidation Strategy: Cross-Tenant Coexistence vs Direct Cutover</a></strong><br/>
+<em>Status: Accepted</em> — Established 3-phase coexistence model utilizing Entra ID B2B collaboration and Cross-Tenant Mailbox Migration to maintain continuous patient care during acquisitions.</li>
+</ul>
+<hr/>
+<h2 id="reference-infrastructure-as-code-terraform">Reference Infrastructure as Code (Terraform)<a class="headerlink" href="#reference-infrastructure-as-code-terraform" title="Permanent link">¶</a></h2>
+<p>The portal provides battle-tested, security-hardened Terraform blueprints including:
+- <strong><a href="mosaic_key_vault_module/">Gunslinger Secure Key Vault Module</a></strong> — Production HCL module implementing private endpoints, purge protection, customer-managed keys, and diagnostic telemetry.</p>
+<hr/>
+<h2 id="architectural-principles-guardrails">Architectural Principles &amp; Guardrails<a class="headerlink" href="#architectural-principles-guardrails" title="Permanent link">¶</a></h2>
+<ol>
+<li><strong>Zero-Trust Network Access (ZTNA):</strong> No implicit trust based on network locality. Every clinical endpoint, container, and engineer is explicitly authenticated and authorized.</li>
+<li><strong>Data Sovereignty &amp; Encryption Everywhere:</strong> All PHI/PII data is encrypted in transit using TLS 1.3 and at rest using FIPS 140-2 Level 3 hardware security module keys.</li>
+<li><strong>Immutable Audit Trails:</strong> Audit records and API transactions are streamed directly to Microsoft Sentinel and Log Analytics with a 7-year retention policy for regulatory compliance.</li>
+<li><strong>Resilience &amp; Regional Failover:</strong> Active-active multi-region failover with maximum allowable <strong>RTO &lt; 15 minutes</strong> and <strong>RPO &lt; 1 minute</strong> for mission-critical clinical systems.</li>
+</ol>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2026 Mosaic Healthcare Enterprise Architecture &amp; Infrastructure Operations. All rights reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({
+    theme: "dark"
+});</script></body>
+</html>
