@@ -47,17 +47,17 @@ graph TB
         ManagementSpoke["Spoke: Platform & SIEM<br/>(10.240.128.0/20)<br/>Sentinel, Bastion, AD DS"]
     end
 
-    HospitalEdge ==>|Primary 10G ER Circuit| ERGW1
+    HospitalEdge -->|Primary 10G ER Circuit| ERGW1
     HospitalEdge -.->|Secondary 10G ER Circuit| ERGW2
-    ClinicEdge ==>|Active S2S IPsec| VPNGW1
+    ClinicEdge -->|Active S2S IPsec| VPNGW1
     ClinicEdge -.->|Failover S2S IPsec| VPNGW2
-    MCOpsEdge ==>|Multi-Cloud Transit| VPNGW1
+    MCOpsEdge -->|Multi-Cloud Transit| VPNGW1
 
-    vWANHub1 <===>|Global vWAN Inter-Hub Peering| vWANHub2
+    vWANHub1 <-->|"Global vWAN Inter-Hub Peering"| vWANHub2
 
-    AzFW1 <==>|Secured Routing Intent (0.0.0.0/0 & RFC1918)| ClinicalSpoke
-    AzFW1 <==>|Secured Routing Intent| AnalyticsSpoke
-    AzFW1 <==>|Secured Routing Intent| ManagementSpoke
+    AzFW1 <-->|"Secured Routing Intent (RFC1918)"| ClinicalSpoke
+    AzFW1 <-->|"Secured Routing Intent"| AnalyticsSpoke
+    AzFW1 <-->|"Secured Routing Intent"| ManagementSpoke
 ```
 
 ---
