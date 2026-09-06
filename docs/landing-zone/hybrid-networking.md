@@ -18,7 +18,7 @@ graph TB
     end
 
     subgraph "Azure Primary Region: East US 2 (Hub-01)"
-        vWANHub1["Azure Virtual WAN Secured Hub<br/><code>vwan-hub-eastus2</code> (10.200.0.0/20)"]
+        vWANHub1["Azure Virtual WAN Secured Hub<br/>vwan-hub-eastus2 (10.200.0.0/20)"]
         AzFW1["Azure Firewall Premium<br/>(IDPS, TLS Inspection, FQDN Filtering)"]
         ERGW1["ExpressRoute Gateway (Scale Unit 4)<br/>ASN: 65010"]
         VPNGW1["VPN Gateway (Scale Unit 2)<br/>ASN: 65011"]
@@ -31,7 +31,7 @@ graph TB
     end
 
     subgraph "Azure Secondary Region: Central US (Hub-02 DR)"
-        vWANHub2["Azure Virtual WAN Hub DR<br/><code>vwan-hub-centralus</code> (10.201.0.0/20)"]
+        vWANHub2["Azure Virtual WAN Hub DR<br/>vwan-hub-centralus (10.201.0.0/20)"]
         AzFW2["Azure Firewall Premium DR"]
         ERGW2["ExpressRoute Gateway DR"]
         VPNGW2["VPN Gateway DR"]
@@ -42,9 +42,9 @@ graph TB
     end
 
     subgraph "Spoke Virtual Networks"
-        ClinicalSpoke["Spoke: Clinical Workloads<br/>(10.240.0.0/18)<br/>Epic, Cerner, FHIR Ingestion"]
-        AnalyticsSpoke["Spoke: Databricks Lakehouse<br/>(10.240.64.0/18)<br/>Delta Lake, AI TimesFM Models"]
-        ManagementSpoke["Spoke: Platform & SIEM<br/>(10.240.128.0/20)<br/>Sentinel, Bastion, AD DS"]
+        ClinicalSpoke["Spoke: Clinical Workloads (10.240.0.0/18)<br/>Epic, Cerner, FHIR Ingestion"]
+        AnalyticsSpoke["Spoke: Databricks Lakehouse (10.240.64.0/18)<br/>Delta Lake, AI TimesFM Models"]
+        ManagementSpoke["Spoke: Platform & SIEM (10.240.128.0/20)<br/>Sentinel, Bastion, AD DS"]
     end
 
     HospitalEdge -->|Primary 10G ER Circuit| ERGW1
@@ -53,11 +53,11 @@ graph TB
     ClinicEdge -.->|Failover S2S IPsec| VPNGW2
     MCOpsEdge -->|Multi-Cloud Transit| VPNGW1
 
-    vWANHub1 <-->|"Global vWAN Inter-Hub Peering"| vWANHub2
+    vWANHub1 ---|Global vWAN Inter-Hub Peering| vWANHub2
 
-    AzFW1 <-->|"Secured Routing Intent (RFC1918)"| ClinicalSpoke
-    AzFW1 <-->|"Secured Routing Intent"| AnalyticsSpoke
-    AzFW1 <-->|"Secured Routing Intent"| ManagementSpoke
+    AzFW1 -->|Secured Routing Intent: RFC1918| ClinicalSpoke
+    AzFW1 -->|Secured Routing Intent: RFC1918| AnalyticsSpoke
+    AzFW1 -->|Secured Routing Intent: RFC1918| ManagementSpoke
 ```
 
 ---

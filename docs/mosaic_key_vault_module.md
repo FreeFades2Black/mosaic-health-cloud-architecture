@@ -16,15 +16,15 @@ It encapsulates zero-trust network isolation, hardware-backed customer-managed e
 graph TD
     subgraph "Spoke Virtual Network (10.240.0.0/18)"
         AppSubnet["Clinical Application Subnet (10.240.10.0/24)<br/>Epic EHR / FHIR Microservices"]
-        PESubnet["Private Endpoint Subnet (10.240.12.0/24)<br/><code>snet-private-endpoints</code>"]
+        PESubnet["Private Endpoint Subnet (10.240.12.0/24)<br/>snet-private-endpoints"]
         PE["Key Vault Private Endpoint<br/>(Private IP: 10.240.12.10)"]
         PESubnet --> PE
         AppSubnet -->|TLS 1.3 / Port 443| PE
     end
 
     subgraph "Azure Key Vault Premium (FIPS 140-2 Level 3 HSM)"
-        KVInstance["Azure Key Vault Instance<br/><code>kv-mosaic-prod-XXXXXX</code>"]
-        MasterKEK["Master Customer-Managed Key<br/><code>RSA-HSM 4096-bit</code><br/>Auto-Rotation: 365 Days"]
+        KVInstance["Azure Key Vault Instance<br/>kv-mosaic-prod-XXXXXX"]
+        MasterKEK["Master Customer-Managed Key<br/>RSA-HSM 4096-bit<br/>Auto-Rotation: 365 Days"]
         NetACL["Network ACLs: Default Deny<br/>Public Access: DISABLED"]
         
         KVInstance --> MasterKEK
@@ -32,7 +32,7 @@ graph TD
     end
 
     subgraph "Platform Governance & SIEM"
-        LAW["Central Log Analytics Workspace<br/><code>law-mosaic-mgmt-prod-01</code>"]
+        LAW["Central Log Analytics Workspace<br/>law-mosaic-mgmt-prod-01"]
         Sentinel["Microsoft Sentinel SIEM<br/>(Real-Time Threat Detection)"]
         LAW --> Sentinel
     end

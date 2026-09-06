@@ -21,7 +21,7 @@ graph TD
     subgraph "Ingestion & Security Analytics Tier"
         DiagnosticSettings["Azure Diagnostic Settings<br/>(Enforced via Azure Policy)"]
         EventHub["Azure Event Hubs<br/>(High-Throughput Streaming Buffer)"]
-        LogAnalytics["Log Analytics Central Workspace<br/><code>law-mosaic-mgmt-prod-01</code><br/>(Hot Tier: 730 Days Active Search)"]
+        LogAnalytics["Log Analytics Central Workspace<br/>law-mosaic-mgmt-prod-01<br/>(Hot Tier: 730 Days Active Search)"]
         Sentinel["Microsoft Sentinel SIEM<br/>(Threat Intelligence & SOAR Playbooks)"]
     end
 

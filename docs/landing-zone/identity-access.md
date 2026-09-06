@@ -12,13 +12,13 @@ Identity is the primary security boundary in modern healthcare cloud architectur
 ```mermaid
 graph TD
     subgraph "On-Premises AD DS Forests"
-        CorpAD["Corporate Active Directory Forest<br/><code>ad.mosaic-healthcare.org</code>"]
-        AcquiredAD["Acquired Hospital Forest<br/><code>legacy.carolina-health.local</code>"]
+        CorpAD["Corporate Active Directory Forest<br/>ad.mosaic-healthcare.org"]
+        AcquiredAD["Acquired Hospital Forest<br/>legacy.carolina-health.local"]
     end
 
     subgraph "Entra ID Cloud Identity Plane"
         EntraCloudSync["Microsoft Entra Cloud Sync Agents<br/>(Lightweight, High-Availability)"]
-        EntraTenant["Entra ID Enterprise Tenant<br/><code>mosaic-healthcare.onmicrosoft.com</code>"]
+        EntraTenant["Entra ID Enterprise Tenant<br/>mosaic-healthcare.onmicrosoft.com"]
         CAEngine["Conditional Access Engine<br/>(Device Compliance, Risk Level, Location)"]
         PIMService["Entra ID Privileged Identity Management (PIM)<br/>(JIT Elevation, ARB Approval, MFA Step-Up)"]
     end
