@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mosaic-health-cloud-architecture"
+version = "1.0.0"
+description = "Interactive Enterprise Cloud Architecture & M&A Governance Portal for Mosaic Healthcare"
+readme = "README.md"
+authors = [
+    { name = "Mosaic Cloud Architecture Review Board", email = "architecture@mosaic-healthcare.internal" }
+]
+license = { text = "Apache-2.0" }
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Healthcare Industry",
+    "Intended Audience :: System Administrators",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Security",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "mkdocs>=1.5.3",
+    "mkdocs-material>=9.5.15",
+    "pymdown-extensions>=10.7",
+    "mkdocs-mermaid2-plugin>=1.1.1",
+    "pyyaml>=6.0.1",
+    "pytest>=8.0.0",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-ra -q --tb=short"
+testpaths = [
+    "tests",
+]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
