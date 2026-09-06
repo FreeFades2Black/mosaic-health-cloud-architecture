@@ -784,39 +784,39 @@
 <div class="mermaid">graph TD
     TenantRoot["Tenant Root Group<br/>(Mosaic Healthcare Tenant: mosaic-healthcare.org)"]
 
-    MosaicRoot["Mosaic Healthcare Enterprise Root<br/><code>/providers/Microsoft.Management/managementGroups/mg-mosaic-root</code>"]
+    MosaicRoot["Mosaic Healthcare Enterprise Root<br/>/providers/Microsoft.Management/managementGroups/mg-mosaic-root"]
 
     TenantRoot --&gt; MosaicRoot
 
-    Platform["Platform Management Group<br/><code>mg-mosaic-platform</code>"]
-    LandingZones["Landing Zones Management Group<br/><code>mg-mosaic-landingzones</code>"]
-    Sandbox["Sandboxes Management Group<br/><code>mg-mosaic-sandboxes</code>"]
-    Decom["Decommissioned Management Group<br/><code>mg-mosaic-decom</code>"]
+    Platform["Platform Management Group<br/>mg-mosaic-platform"]
+    LandingZones["Landing Zones Management Group<br/>mg-mosaic-landingzones"]
+    Sandbox["Sandboxes Management Group<br/>mg-mosaic-sandboxes"]
+    Decom["Decommissioned Management Group<br/>mg-mosaic-decom"]
 
     MosaicRoot --&gt; Platform
     MosaicRoot --&gt; LandingZones
     MosaicRoot --&gt; Sandbox
     MosaicRoot --&gt; Decom
 
-    MgmtSub["Management Sub<br/><code>sub-mosaic-mgmt-prod-01</code>"]
-    ConnSub["Connectivity Sub<br/><code>sub-mosaic-conn-prod-01</code>"]
-    IdSub["Identity Sub<br/><code>sub-mosaic-identity-prod-01</code>"]
+    MgmtSub["Management Sub<br/>sub-mosaic-mgmt-prod-01"]
+    ConnSub["Connectivity Sub<br/>sub-mosaic-conn-prod-01"]
+    IdSub["Identity Sub<br/>sub-mosaic-identity-prod-01"]
 
     Platform --&gt; MgmtSub
     Platform --&gt; ConnSub
     Platform --&gt; IdSub
 
-    Clinical["Clinical Workloads<br/><code>mg-mosaic-clinical</code>"]
-    Analytics["Lakehouse &amp; AI Analytics<br/><code>mg-mosaic-analytics</code>"]
-    Corporate["Corporate Services<br/><code>mg-mosaic-corporate</code>"]
+    Clinical["Clinical Workloads<br/>mg-mosaic-clinical"]
+    Analytics["Lakehouse &amp; AI Analytics<br/>mg-mosaic-analytics"]
+    Corporate["Corporate Services<br/>mg-mosaic-corporate"]
 
     LandingZones --&gt; Clinical
     LandingZones --&gt; Analytics
     LandingZones --&gt; Corporate
 
-    EpicSub["Epic / Cerner EHR Sub<br/><code>sub-mosaic-clinical-prod-01</code>"]
-    PACSsub["DICOM Imaging Sub<br/><code>sub-mosaic-pacs-prod-01</code>"]
-    LakehouseSub["Databricks UC Sub<br/><code>sub-mosaic-lakehouse-prod-01</code>"]
+    EpicSub["Epic / Cerner EHR Sub<br/>sub-mosaic-clinical-prod-01"]
+    PACSsub["DICOM Imaging Sub<br/>sub-mosaic-pacs-prod-01"]
+    LakehouseSub["Databricks UC Sub<br/>sub-mosaic-lakehouse-prod-01"]
 
     Clinical --&gt; EpicSub
     Clinical --&gt; PACSsub
