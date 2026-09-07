@@ -114,6 +114,7 @@ nav:
       - Governance & Compliance: compliance-hitrust/index.md
       - Control Mapping Matrix: compliance-hitrust/control-mapping-matrix.md
       - Audit Evidence & Logging: compliance-hitrust/audit-evidence-logging.md
+      - AI Foundry & Model Regulation: compliance-hitrust/ai-foundry-governance.md
   - Multi-Cloud Rosetta Stone:
       - Rosetta Stone Overview: multicloud-matrix/index.md
       - AWS vs GCP vs Azure: multicloud-matrix/aws-gcp-azure-mapping.md

@@ -49,3 +49,5 @@ graph TD
   Comprehensive, searchable matrix mapping HITRUST CSF v11 domains directly to Azure technical implementations, Azure Policy IDs, and evidence verification mechanisms.
 - **[Audit Evidence & Centralized Logging Pipeline](audit-evidence-logging.md)**  
   Architecture and deployment patterns for real-time diagnostic log ingestion, Microsoft Sentinel analytics rules, and WORM (Write Once, Read Many) compliant long-term audit storage.
+- **[Azure AI Foundry Agent Governance & Model Regulation](ai-foundry-governance.md)**  
+  Automated evaluation gates, Content Safety thresholds, groundedness scoring, prompt injection shielding, and PHI redaction for clinical AI agents.
