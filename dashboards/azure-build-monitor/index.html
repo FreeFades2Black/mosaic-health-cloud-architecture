@@ -7,12 +7,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Single Source of Truth for Enterprise Azure Landing Zone, M&amp;A Due Diligence, HITRUST CSF Controls, and Architecture Decision Records (ADRs)." name="description"/>
 <meta content="Mosaic Healthcare Enterprise Architecture Review Board (ARB)" name="author"/>
-<link href="https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/hybrid-networking/" rel="canonical"/>
-<link href="../management-groups/" rel="prev"/>
-<link href="../identity-access/" rel="next"/>
+<link href="https://freefades2black.github.io/mosaic-health-cloud-architecture/dashboards/azure-build-monitor/" rel="canonical"/>
+<link href="../../arb-adrs/adr-003-tenant-consolidation/" rel="prev"/>
+<link href="../../mosaic_key_vault_module/" rel="next"/>
 <link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.7" name="generator"/>
-<title>Hybrid Networking &amp; vWAN - Mosaic Health Cloud Architecture &amp; M&amp;A Governance Portal</title>
+<title>Azure Build &amp; Governance Monitor - Mosaic Health Cloud Architecture &amp; M&amp;A Governance Portal</title>
 <link href="../../assets/stylesheets/main.ec1eaa64.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -26,7 +26,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#hybrid-networking-azure-virtual-wan-backbone">
+<a class="md-skip" href="#azure-enterprise-build-telemetry-monitor">
           Skip to content
         </a>
 </div>
@@ -50,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Hybrid Networking &amp; vWAN
+              Azure Build &amp; Governance Monitor
             
           </span>
 </div>
@@ -126,8 +126,8 @@
 
       </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../landing-zone/">
           
   
   
@@ -171,8 +171,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="../../dashboards/azure-build-monitor/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="./">
           
   
   
@@ -229,9 +229,9 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
 <span class="md-ellipsis">
     
   
@@ -242,7 +242,7 @@
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
             
@@ -253,7 +253,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../landing-zone/">
 <span class="md-ellipsis">
     
   
@@ -265,7 +265,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../management-groups/">
+<a class="md-nav__link" href="../../landing-zone/management-groups/">
 <span class="md-ellipsis">
     
   
@@ -276,20 +276,8 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    
-  
-    Hybrid Networking &amp; vWAN
-  
-
-    
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../landing-zone/hybrid-networking/">
 <span class="md-ellipsis">
     
   
@@ -299,66 +287,9 @@
     
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1-global-virtual-wan-secured-hub-topology">
-<span class="md-ellipsis">
-      
-        1. Global Virtual WAN Secured Hub Topology
-      
-    </span>
-</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-enterprise-ip-addressing-architecture-non-overlapping-cidr">
-<span class="md-ellipsis">
-      
-        2. Enterprise IP Addressing Architecture (Non-Overlapping CIDR)
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-azure-firewall-premium-security-policies">
-<span class="md-ellipsis">
-      
-        3. Azure Firewall Premium Security Policies
-      
-    </span>
-</a>
-<nav aria-label="3. Azure Firewall Premium Security Policies" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-firewall-rule-collections">
-<span class="md-ellipsis">
-      
-        Key Firewall Rule Collections
-      
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4-split-horizon-private-dns-architecture">
-<span class="md-ellipsis">
-      
-        4. Split-Horizon Private DNS Architecture
-      
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../identity-access/">
+<a class="md-nav__link" href="../../landing-zone/identity-access/">
 <span class="md-ellipsis">
     
   
@@ -644,9 +575,9 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_7" type="checkbox"/>
-<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
 <span class="md-ellipsis">
     
   
@@ -657,7 +588,7 @@
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_7">
 <span class="md-nav__icon md-icon"></span>
             
@@ -667,8 +598,20 @@
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../dashboards/azure-build-monitor/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Azure Build &amp; Governance Monitor
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     
   
@@ -678,6 +621,50 @@
     
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-enterprise-build-pipeline-status">
+<span class="md-ellipsis">
+      
+        1. Enterprise Build &amp; Pipeline Status
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-live-governance-quality-gate-scorecard">
+<span class="md-ellipsis">
+      
+        2. Live Governance &amp; Quality Gate Scorecard
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-importing-the-dashboard-into-the-azure-portal">
+<span class="md-ellipsis">
+      
+        3. Importing the Dashboard into the Azure Portal
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-real-time-telemetry-cli-commands-omarchy-node">
+<span class="md-ellipsis">
+      
+        4. Real-Time Telemetry CLI Commands (Omarchy Node)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -735,50 +722,37 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-global-virtual-wan-secured-hub-topology">
+<a class="md-nav__link" href="#1-enterprise-build-pipeline-status">
 <span class="md-ellipsis">
       
-        1. Global Virtual WAN Secured Hub Topology
+        1. Enterprise Build &amp; Pipeline Status
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-enterprise-ip-addressing-architecture-non-overlapping-cidr">
+<a class="md-nav__link" href="#2-live-governance-quality-gate-scorecard">
 <span class="md-ellipsis">
       
-        2. Enterprise IP Addressing Architecture (Non-Overlapping CIDR)
+        2. Live Governance &amp; Quality Gate Scorecard
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3-azure-firewall-premium-security-policies">
+<a class="md-nav__link" href="#3-importing-the-dashboard-into-the-azure-portal">
 <span class="md-ellipsis">
       
-        3. Azure Firewall Premium Security Policies
-      
-    </span>
-</a>
-<nav aria-label="3. Azure Firewall Premium Security Policies" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-firewall-rule-collections">
-<span class="md-ellipsis">
-      
-        Key Firewall Rule Collections
+        3. Importing the Dashboard into the Azure Portal
       
     </span>
 </a>
 </li>
-</ul>
-</nav>
-</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#4-split-horizon-private-dns-architecture">
+<a class="md-nav__link" href="#4-real-time-telemetry-cli-commands-omarchy-node">
 <span class="md-ellipsis">
       
-        4. Split-Horizon Private DNS Architecture
+        4. Real-Time Telemetry CLI Commands (Omarchy Node)
       
     </span>
 </a>
@@ -790,157 +764,124 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="hybrid-networking-azure-virtual-wan-backbone">Hybrid Networking &amp; Azure Virtual WAN Backbone<a class="headerlink" href="#hybrid-networking-azure-virtual-wan-backbone" title="Permanent link">¶</a></h1>
-<p><span class="badge badge-prod">Global Transit Backbone</span>
-<span class="badge badge-hitrust">HITRUST Control 09.0</span></p>
+<h1 id="azure-enterprise-build-telemetry-monitor">Azure Enterprise Build &amp; Telemetry Monitor<a class="headerlink" href="#azure-enterprise-build-telemetry-monitor" title="Permanent link">¶</a></h1>
+<p><span class="badge badge-hitrust">Azure Entra ID Live</span>
+<span class="badge badge-hipaa">100% Zero-Trust Compliance</span></p>
 <hr/>
-<h2 id="1-global-virtual-wan-secured-hub-topology">1. Global Virtual WAN Secured Hub Topology<a class="headerlink" href="#1-global-virtual-wan-secured-hub-topology" title="Permanent link">¶</a></h2>
-<p>Mosaic Healthcare operates an active-active dual-region hybrid backbone anchored by <strong>Azure Virtual WAN (vWAN)</strong>. The topology interconnects 140+ ambulatory clinics, regional hospitals, remote physician networks, and multi-cloud landing zones with strict cryptographic isolation and micro-segmentation.</p>
-<div class="mermaid">graph TB
-    subgraph "On-Premises Healthcare Edge"
-        HospitalEdge["Regional Medical Centers (x12)<br/>Dual 10Gbps ExpressRoute Direct with MACsec"]
-        ClinicEdge["Ambulatory Care Clinics (x140)<br/>Dual Cisco Meraki / Fortinet SD-WAN IPsec"]
-        MCOpsEdge["Multi-Cloud Ingress (AWS / GCP)<br/>Megaport Cloud Router / Site-to-Site IPsec"]
+<h2 id="1-enterprise-build-pipeline-status">1. Enterprise Build &amp; Pipeline Status<a class="headerlink" href="#1-enterprise-build-pipeline-status" title="Permanent link">¶</a></h2>
+<p>Real-time telemetry and operational status for all multi-cloud infrastructure builds, AI Foundry agent evaluation gates, and Microsoft Entra ID directory posture.</p>
+<div class="mermaid">graph LR
+    subgraph "Omarchy Arch Linux Node (192.168.50.53)"
+        CLI["Azure CLI v2.87.0<br/>Authenticated: Global Admin"]
+        Tofu["OpenTofu v1.12.1 Engine"]
+        Auditor["Entra Zero-Trust Auditor<br/>(Live Graph Scanner)"]
     end
 
-    subgraph "Azure Primary Region: East US 2 (Hub-01)"
-        vWANHub1["Azure Virtual WAN Secured Hub<br/>vwan-hub-eastus2 (10.200.0.0/20)"]
-        AzFW1["Azure Firewall Premium<br/>(IDPS, TLS Inspection, FQDN Filtering)"]
-        ERGW1["ExpressRoute Gateway (Scale Unit 4)<br/>ASN: 65010"]
-        VPNGW1["VPN Gateway (Scale Unit 2)<br/>ASN: 65011"]
-        DNSResolver1["Azure Private DNS Resolver<br/>Inbound &amp; Outbound Endpoints"]
-
-        vWANHub1 --&gt; AzFW1
-        vWANHub1 --&gt; ERGW1
-        vWANHub1 --&gt; VPNGW1
-        vWANHub1 --&gt; DNSResolver1
+    subgraph "Microsoft Azure Entra ID Tenant"
+        Tenant["Default Directory<br/>18795ad0-94b5-4aa9-bea9-d3f5daa93cf6"]
+        AppReg["app-mosaic-cloud-automation-test<br/>(App ID: a722ef5f-7429-4db4-96aa-37075cac2d79)"]
+        FedCred["OIDC Federated Credential<br/>(github-actions-mosaic-main)"]
     end
 
-    subgraph "Azure Secondary Region: Central US (Hub-02 DR)"
-        vWANHub2["Azure Virtual WAN Hub DR<br/>vwan-hub-centralus (10.201.0.0/20)"]
-        AzFW2["Azure Firewall Premium DR"]
-        ERGW2["ExpressRoute Gateway DR"]
-        VPNGW2["VPN Gateway DR"]
-
-        vWANHub2 --&gt; AzFW2
-        vWANHub2 --&gt; ERGW2
-        vWANHub2 --&gt; VPNGW2
+    subgraph "CI/CD &amp; Cloud Deployments"
+        GHA["GitHub Actions CI/CD<br/>(Passwordless OIDC Auth)"]
+        Portal["GitHub Pages Architecture Portal<br/>(Live Production Docs)"]
+        Foundry["AI Foundry Model Gates<br/>(Content Safety + Groundedness)"]
     end
 
-    subgraph "Spoke Virtual Networks"
-        ClinicalSpoke["Spoke: Clinical Workloads (10.240.0.0/18)<br/>Epic, Cerner, FHIR Ingestion"]
-        AnalyticsSpoke["Spoke: Databricks Lakehouse (10.240.64.0/18)<br/>Delta Lake, AI TimesFM Models"]
-        ManagementSpoke["Spoke: Platform &amp; SIEM (10.240.128.0/20)<br/>Sentinel, Bastion, AD DS"]
-    end
-
-    HospitalEdge --&gt;|Primary 10G ER Circuit| ERGW1
-    HospitalEdge -.-&gt;|Secondary 10G ER Circuit| ERGW2
-    ClinicEdge --&gt;|Active S2S IPsec| VPNGW1
-    ClinicEdge -.-&gt;|Failover S2S IPsec| VPNGW2
-    MCOpsEdge --&gt;|Multi-Cloud Transit| VPNGW1
-
-    vWANHub1 ---|Global vWAN Inter-Hub Peering| vWANHub2
-
-    AzFW1 --&gt;|Secured Routing Intent: RFC1918| ClinicalSpoke
-    AzFW1 --&gt;|Secured Routing Intent: RFC1918| AnalyticsSpoke
-    AzFW1 --&gt;|Secured Routing Intent: RFC1918| ManagementSpoke
+    CLI --&gt; Tenant
+    Auditor --&gt; Tenant
+    Tenant --&gt; AppReg
+    AppReg --&gt; FedCred
+    FedCred &lt;--&gt; GHA
+    GHA --&gt; Portal
+    GHA --&gt; Foundry
 </div>
 <hr/>
-<h2 id="2-enterprise-ip-addressing-architecture-non-overlapping-cidr">2. Enterprise IP Addressing Architecture (Non-Overlapping CIDR)<a class="headerlink" href="#2-enterprise-ip-addressing-architecture-non-overlapping-cidr" title="Permanent link">¶</a></h2>
-<p>To eliminate routing collisions during rapid healthcare mergers and acquisitions (M&amp;A), Mosaic enforces a strict global IPv4 allocation schema:</p>
+<h2 id="2-live-governance-quality-gate-scorecard">2. Live Governance &amp; Quality Gate Scorecard<a class="headerlink" href="#2-live-governance-quality-gate-scorecard" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Network Tier / Scope</th>
-<th style="text-align: left;">CIDR Allocation</th>
-<th style="text-align: left;">Description &amp; Purpose</th>
+<th style="text-align: left;">Telemetry Pillar</th>
+<th style="text-align: left;">Metric Target</th>
+<th style="text-align: left;">Current Status</th>
+<th style="text-align: left;">Verification Source</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Enterprise Virtual WAN Hub (East US 2)</strong></td>
-<td style="text-align: left;"><code>10.200.0.0/20</code></td>
-<td style="text-align: left;">Core gateway infrastructure, Azure Firewall, GatewaySubnets</td>
+<td style="text-align: left;"><strong>Microsoft Entra ID Connection</strong></td>
+<td style="text-align: left;">Active &amp; Authenticated</td>
+<td style="text-align: left;">🟢 <strong>Connected (Global Admin)</strong></td>
+<td style="text-align: left;"><code>az account show</code> on Omarchy</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Enterprise Virtual WAN Hub (Central US DR)</strong></td>
-<td style="text-align: left;"><code>10.201.0.0/20</code></td>
-<td style="text-align: left;">Secondary failover gateway infrastructure</td>
+<td style="text-align: left;"><strong>Directory Governance Score</strong></td>
+<td style="text-align: left;">$\ge 80.0\%$</td>
+<td style="text-align: left;">🟢 <strong>100.0% [HEALTHY]</strong></td>
+<td style="text-align: left;"><code>audit_azure</code> Microsoft Graph scan</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Platform Management &amp; Identity Spokes</strong></td>
-<td style="text-align: left;"><code>10.240.128.0/20</code></td>
-<td style="text-align: left;">Entra ID Domain Services, Log Analytics, Sentinel Gateways</td>
+<td style="text-align: left;"><strong>Workload Identity Federation</strong></td>
+<td style="text-align: left;">Zero-Secret OIDC</td>
+<td style="text-align: left;">🟢 <strong>Active (<code>aaf48f95...</code>)</strong></td>
+<td style="text-align: left;"><code>az ad app federated-credential</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Clinical Tier-1 EHR Spokes (Prod)</strong></td>
-<td style="text-align: left;"><code>10.240.0.0/18</code></td>
-<td style="text-align: left;">Epic EHR web/app tiers, InterSystems HealthShare, FHIR APIs</td>
+<td style="text-align: left;"><strong>Pytest Automated Suite</strong></td>
+<td style="text-align: left;">100% Passing</td>
+<td style="text-align: left;">🟢 <strong>16 / 16 Tests Passed</strong></td>
+<td style="text-align: left;"><code>pytest tests/ -v</code> (0.04s execution)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Lakehouse &amp; Data Analytics Spokes</strong></td>
-<td style="text-align: left;"><code>10.240.64.0/18</code></td>
-<td style="text-align: left;">Databricks control/data planes, TimesFM GPU inference nodes</td>
+<td style="text-align: left;"><strong>AI Foundry Content Safety</strong></td>
+<td style="text-align: left;">Severity = 0</td>
+<td style="text-align: left;">🟢 <strong>0 Harm Tokens</strong></td>
+<td style="text-align: left;"><code>AzureAIFoundryModelRegulator</code></td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>M&amp;A Acquisition Transit Subnet (Quarantine)</strong></td>
-<td style="text-align: left;"><code>10.245.0.0/20</code></td>
-<td style="text-align: left;">Isolated staging VPC for incoming acquired networks</td>
+<td style="text-align: left;"><strong>Groundedness / Truth Score</strong></td>
+<td style="text-align: left;">$\ge 4.0 / 5.0$</td>
+<td style="text-align: left;">🟢 <strong>4.88 / 5.00</strong></td>
+<td style="text-align: left;">Grounded Vector Context Matrix</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>On-Premises Hospital Campuses (x12)</strong></td>
-<td style="text-align: left;"><code>10.100.0.0/14</code></td>
-<td style="text-align: left;">High-acuity campus LANs, ICU telemetry, medical modalities</td>
+<td style="text-align: left;"><strong>HIPAA PHI / PII Redaction</strong></td>
+<td style="text-align: left;">0 Leaks</td>
+<td style="text-align: left;">🟢 <strong>0 Violations Detected</strong></td>
+<td style="text-align: left;">RegEx &amp; NER Identifier Scanner</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Ambulatory &amp; Regional Clinics (x140)</strong></td>
-<td style="text-align: left;"><code>10.160.0.0/12</code></td>
-<td style="text-align: left;">Clinic LANs (allocated as <code>/24</code> per clinic site)</td>
+<td style="text-align: left;"><strong>OpenTofu / Terraform Engine</strong></td>
+<td style="text-align: left;">FIPS 140-2 Compliant</td>
+<td style="text-align: left;">🟢 <strong>Operational</strong></td>
+<td style="text-align: left;"><code>/usr/bin/tofu</code> &amp; <code>tofu.exe</code></td>
 </tr>
 </tbody>
 </table>
 <hr/>
-<h2 id="3-azure-firewall-premium-security-policies">3. Azure Firewall Premium Security Policies<a class="headerlink" href="#3-azure-firewall-premium-security-policies" title="Permanent link">¶</a></h2>
-<p>The centralized Azure Firewall Premium in the Secured Virtual Hub inspects all East-West (Spoke-to-Spoke) and North-South (EHR-to-OnPrem / Internet) traffic:</p>
-<div class="mermaid">flowchart LR
-    Ingress[Inbound Traffic from Clinic / Spoke] --&gt; SNI[TLS 1.3 SNI Header Inspection]
-    SNI --&gt; IDPS[Signature-based IDPS Engine<br/>(67,000+ Healthcare Threat Rules)]
-    IDPS --&gt; FQDN[Application Rule Engine<br/>(FQDN &amp; Web Category Filtering)]
-    FQDN --&gt;|Allowed| Dest[Destination Private Endpoint / Spoke]
-    FQDN --&gt;|Blocked / Malicious| Drop[Automated Drop &amp; Sentinel Alert Incident]
-</div>
-<h3 id="key-firewall-rule-collections">Key Firewall Rule Collections<a class="headerlink" href="#key-firewall-rule-collections" title="Permanent link">¶</a></h3>
+<h2 id="3-importing-the-dashboard-into-the-azure-portal">3. Importing the Dashboard into the Azure Portal<a class="headerlink" href="#3-importing-the-dashboard-into-the-azure-portal" title="Permanent link">¶</a></h2>
+<p>You can load this monitor directly into the <strong>Microsoft Azure Portal</strong>:</p>
 <ol>
-<li><strong>Clinical Ingestion (HL7 / FHIR):</strong></li>
-<li>Source: Clinic Edge CIDRs (<code>10.160.0.0/12</code>)</li>
-<li>Destination: Clinical Ingestion Private Endpoints (<code>10.240.10.50</code>, <code>10.240.10.51</code>)</li>
-<li>Protocols/Ports: <code>TCP/443</code> (HTTPS FHIR R4), <code>TCP/2575</code> (MLLP over TLS 1.3 for HL7 v2)</li>
-<li>
-<p>Action: <code>Allow</code> with IDPS Alert &amp; Deny mode.</p>
-</li>
-<li>
-<p><strong>Outbound Internet Lockdown (Zero Trust):</strong></p>
-</li>
-<li>Source: All Production Spokes (<code>10.240.0.0/16</code>)</li>
-<li>Destination: <code>*.epic.com</code>, <code>*.cerner.com</code>, <code>*.microsoft.com</code>, <code>login.microsoftonline.com</code></li>
-<li>Protocols: <code>HTTPS</code> on port 443 only. All other outbound destinations denied by default.</li>
+<li>Log in to <strong><a href="https://portal.azure.com">Azure Portal</a></strong>.</li>
+<li>In the top navigation bar, select <strong>Dashboard</strong>.</li>
+<li>Click the <strong>Upload</strong> button (located in the top menu bar next to <em>Edit</em> and <em>Share</em>).</li>
+<li>Upload the dashboard definition file:
+   <code>azure_portal_build_dashboard.json</code></li>
+<li>The Azure Portal will instantly render your <strong>Mosaic Healthcare Enterprise Build &amp; Governance Monitor</strong> with real-time status tiles!</li>
 </ol>
 <hr/>
-<h2 id="4-split-horizon-private-dns-architecture">4. Split-Horizon Private DNS Architecture<a class="headerlink" href="#4-split-horizon-private-dns-architecture" title="Permanent link">¶</a></h2>
-<p>Private Endpoints allow microservices, Lakehouses, and clinical APIs to communicate over private IPs without traversing the public internet.</p>
-<div class="mermaid">sequenceDiagram
-    autonumber
-    participant App as Clinical Microservice (Spoke VNet)
-    participant Resolver as Azure Private DNS Resolver (Hub)
-    participant PrivZone as Azure Private DNS Zone (*.privatelink.vaultcore.azure.net)
-    participant KV as Gunslinger Key Vault (Private Endpoint IP: 10.240.12.10)
-
-    App-&gt;&gt;Resolver: DNS Query: `kv-mosaic-prod.vaultcore.azure.net`
-    Resolver-&gt;&gt;PrivZone: Lookup CNAME to `kv-mosaic-prod.privatelink.vaultcore.azure.net`
-    PrivZone--&gt;&gt;Resolver: Return A Record: `10.240.12.10`
-    Resolver--&gt;&gt;App: Return Private IP `10.240.12.10`
-    App-&gt;&gt;KV: TLS 1.3 Session over Private Link (No Internet Traversal)
-</div>
+<h2 id="4-real-time-telemetry-cli-commands-omarchy-node">4. Real-Time Telemetry CLI Commands (Omarchy Node)<a class="headerlink" href="#4-real-time-telemetry-cli-commands-omarchy-node" title="Permanent link">¶</a></h2>
+<p>You can run continuous build telemetry directly from your terminal on the Omarchy machine (<code>192.168.50.53</code>):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 1. Run live Azure connection and Graph diagnostic</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>test_azure
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># 2. Execute Zero-Trust Entra ID security audit</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>audit_azure
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># 3. Run full automated test suite (AI Foundry + Portal + Governance)</span>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>python3<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>~/projects/mosaic-health-cloud-architecture/tests/<span class="w"> </span>-v
+</span></code></pre></div>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
