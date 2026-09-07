@@ -34,6 +34,7 @@ dependencies = [
 [tool.pytest.ini_options]
 minversion = "7.0"
 addopts = "-ra -q --tb=short"
+pythonpath = ["."]
 testpaths = [
     "tests",
 ]
