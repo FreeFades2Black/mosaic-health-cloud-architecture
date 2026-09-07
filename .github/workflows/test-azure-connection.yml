@@ -29,8 +29,8 @@ jobs:
       - name: Authenticate to Azure via OpenID Connect (OIDC)
         uses: azure/login@v2
         with:
-          client-id: "a722ef5f-7429-4db4-96aa-37075cac2d79"
-          tenant-id: "18795ad0-94b5-4aa9-bea9-d3f5daa93cf6"
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           allow-no-subscriptions: true
 
       - name: Run Live Azure CLI Diagnostics from GitHub Runner
