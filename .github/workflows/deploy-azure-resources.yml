@@ -1,39 +1,19 @@
-# ==============================================================================
-# GITHUB ACTIONS: AZURE HEALTH ARCHITECTURE RESOURCE GROUP DEPLOYMENT
-# Provisions Enterprise Resource Groups & Core Landing Zone Infrastructure
-# ==============================================================================
-
 name: Deploy Azure Health Infrastructure
 
 on:
-  workflow_dispatch:
-    inputs:
-      location:
-        description: 'Azure Deployment Region'
-        required: true
-        default: 'eastus2'
-      resource_group:
-        description: 'Resource Group Name'
-        required: true
-        default: 'rg-mosaic-health-prod'
   push:
-    branches:
-      - main
-    paths:
-      - 'terraform/**'
-      - '.github/workflows/deploy-azure-resources.yml'
+    branches: [ "main" ]
+  workflow_dispatch:
 
 permissions:
-  id-token: write
+  id-token: write   # Mandatory for OIDC JWT token exchange
   contents: read
 
 jobs:
-  deploy-landing-zone:
-    name: Provision Azure Health Resource Group & Infrastructure
+  provision-azure:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout Codebase
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Azure Login via OIDC
@@ -44,43 +24,17 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           allow-no-subscriptions: true
 
-      - name: Deploy Health Architecture Resource Group
+      - name: Provision Core Health Resource Group
         uses: azure/cli@v2
         with:
           inlineScript: |
-            set -e
-            RG_NAME="${{ github.event.inputs.resource_group || 'rg-mosaic-health-prod' }}"
-            LOCATION="${{ github.event.inputs.location || 'eastus2' }}"
-            
-            echo "=============================================================================="
-            echo "⚡ PROVISIONING AZURE RESOURCE GROUP: $RG_NAME ($LOCATION)"
-            echo "=============================================================================="
-            
-            # Verify if an active Azure Subscription is attached
-            CURRENT_SUB=$(az account show --query "id" -o tsv 2>/dev/null || true)
-            TENANT_ID=$(az account show --query "tenantId" -o tsv 2>/dev/null || true)
-            
-            if [ "$CURRENT_SUB" == "$TENANT_ID" ] || [ -z "$CURRENT_SUB" ]; then
-              echo "ℹ️ Running in Tenant-Level Mode (No Azure Subscription Attached)."
-              echo "✅ Tenant ID ($TENANT_ID) Verified & Authenticated via OIDC."
-              echo "👉 To create Resource Groups, activate an Azure Subscription (Free / Pay-As-You-Go) and set AZURE_SUBSCRIPTION_ID."
-            else
-              echo "✅ Active Subscription Detected: $CURRENT_SUB"
+            # Check if subscription context is available before deployment
+            SUB_COUNT=$(az account list --query "length(@)" -o tsv)
+            if [ "$SUB_COUNT" -gt 0 ]; then
               az group create \
-                --name "$RG_NAME" \
-                --location "$LOCATION" \
-                --tags Environment=Production Compliance=HIPAA_HITRUST ManagedBy=Antigravity-CI Workload=MosaicHealthcare \
-                --output table
-              echo "✅ Resource Group $RG_NAME successfully created in $LOCATION."
+                --name rg-mosaic-health-prod \
+                --location eastus2 \
+                --tags Environment=Production Compliance=HIPAA_HITRUST ManagedBy=GitHub-OIDC
+            else
+              echo "Tenant handshake verified. Attach subscription to deploy infrastructure."
             fi
-
-      - name: Publish Deployment Step Summary
-        if: always()
-        run: |
-          echo "## 🏥 Azure Health Infrastructure Deployment Summary" >> $GITHUB_STEP_SUMMARY
-          echo "| Resource | Configuration | Status |" >> $GITHUB_STEP_SUMMARY
-          echo "|---|---|---|" >> $GITHUB_STEP_SUMMARY
-          echo "| **Authentication** | GitHub OIDC Workload Identity | ✅ Authenticated |" >> $GITHUB_STEP_SUMMARY
-          echo "| **Target Region** | \`eastus2\` | ✅ Verified |" >> $GITHUB_STEP_SUMMARY
-          echo "| **Resource Group** | \`rg-mosaic-health-prod\` | ✅ Configured |" >> $GITHUB_STEP_SUMMARY
-          echo "| **Compliance Tags** | HIPAA, HITRUST CSF, Production | ✅ Enforced |" >> $GITHUB_STEP_SUMMARY
