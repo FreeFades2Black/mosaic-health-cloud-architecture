@@ -51,6 +51,15 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+# Secrets and Environment variables
+.env
+.env.*
+*.env
+*.secret
+*.pem
+*.key
+*.token
+
 # OS specific files
 .DS_Store
 Thumbs.db
