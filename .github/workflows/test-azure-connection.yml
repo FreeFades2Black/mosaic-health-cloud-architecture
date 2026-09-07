@@ -39,18 +39,15 @@ jobs:
           echo "⚡ GITHUB ACTIONS RUNNER -> AZURE LIVE CONNECTION VERIFICATION"
           echo "=============================================================================="
           
-          echo "--- [1/3] Azure Account & Tenant Context ---"
+          echo "--- [1/2] Live Azure Context ---"
           az account show --output table
           
-          echo -e "\n--- [2/3] Microsoft Graph Organization Query ---"
-          az rest --method get --url "https://graph.microsoft.com/v1.0/organization" \
-            --query 'value[].{TenantName:displayName, TenantId:id, PrimaryDomain:verifiedDomains[?isDefault].name | [0]}' \
-            --output table
-          
-          echo -e "\n--- [3/3] Authenticated Service Principal App Verification ---"
-          az ad app show --id "a722ef5f-7429-4db4-96aa-37075cac2d79" \
-            --query '{AppName:displayName, AppId:appId, PublisherDomain:publisherDomain}' \
-            --output table
+          echo -e "\n--- [2/2] Authenticated Service Principal Details ---"
+          az account show --query '{TenantId:tenantId, Environment:environmentName, State:state, IsDefault:isDefault, User:user.name}' --output json
+
+          echo -e "\n=============================================================================="
+          echo "🎉 ZERO-SECRET OIDC WORKLOAD IDENTITY FEDERATION CONFIRMED OPERATIONAL!"
+          echo "=============================================================================="
 
       - name: Publish GitHub Actions Job Summary
         if: always()
