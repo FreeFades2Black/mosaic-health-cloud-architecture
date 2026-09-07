@@ -124,5 +124,7 @@ nav:
       - ADR-001 vWAN Ingress: arb-adrs/adr-001-vwan-hub-spoke.md
       - ADR-002 Key Vault CMK: arb-adrs/adr-002-key-vault-cmk.md
       - ADR-003 Tenant Consolidation: arb-adrs/adr-003-tenant-consolidation.md
+  - Dashboards & Telemetry:
+      - Azure Build & Governance Monitor: dashboards/azure-build-monitor.md
   - Terraform Blueprints:
       - Gunslinger Secure Vault: mosaic_key_vault_module.md
