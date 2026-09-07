@@ -28,13 +28,16 @@ jobs:
         uses: azure/cli@v2
         with:
           inlineScript: |
-            # Check if subscription context is available before deployment
-            SUB_COUNT=$(az account list --query "length(@)" -o tsv)
-            if [ "$SUB_COUNT" -gt 0 ]; then
+            CURRENT_SUB=$(az account show --query "id" -o tsv 2>/dev/null || true)
+            TENANT_ID=$(az account show --query "tenantId" -o tsv 2>/dev/null || true)
+            
+            # Check if active subscription is bound (not tenant-level placeholder)
+            if [ -n "$CURRENT_SUB" ] && [ "$CURRENT_SUB" != "$TENANT_ID" ]; then
+              echo "✅ Active subscription bound ($CURRENT_SUB). Provisioning Resource Group..."
               az group create \
                 --name rg-mosaic-health-prod \
                 --location eastus2 \
                 --tags Environment=Production Compliance=HIPAA_HITRUST ManagedBy=GitHub-OIDC
             else
-              echo "Tenant handshake verified. Attach subscription to deploy infrastructure."
+              echo "✅ Tenant handshake verified (${TENANT_ID}). Attach subscription to deploy infrastructure."
             fi
