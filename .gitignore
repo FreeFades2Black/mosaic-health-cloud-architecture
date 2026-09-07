@@ -59,6 +59,8 @@ terraform.rc
 *.pem
 *.key
 *.token
+!.env.example
+!*.env.example
 
 # OS specific files
 .DS_Store
