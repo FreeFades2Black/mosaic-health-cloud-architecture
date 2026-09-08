@@ -781,6 +781,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5-sandboxed-code-interpreter-tool-clinical-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sandboxed Code Interpreter Tool &amp; Clinical Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1720,6 +1731,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#5-sandboxed-code-interpreter-tool-clinical-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sandboxed Code Interpreter Tool &amp; Clinical Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1846,6 +1868,29 @@
 <p>You can execute model fine-tuning and RAG indexing programmatically:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Execute the AI Foundry Fine-Tuning and RAG Vector Indexing Pipeline</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>python<span class="w"> </span>src/ai_foundry/agent_fine_tuning_and_rag.py
+</span></code></pre></div>
+<hr />
+<h2 id="5-sandboxed-code-interpreter-tool-clinical-agent">5. Sandboxed Code Interpreter Tool &amp; Clinical Agent<a class="headerlink" href="#5-sandboxed-code-interpreter-tool-clinical-agent" title="Permanent link">&para;</a></h2>
+<p>To eliminate LLM arithmetic hallucinations when dealing with critical dosage equations, laboratory indices, and statistical modeling, the model architecture integrates a sandboxed Python <strong>Code Interpreter Tool</strong>:</p>
+<ul>
+<li><strong>Deterministic Execution:</strong> Offloads complex clinical mathematics to an isolated Python AST runtime rather than relying on generative token probabilities.</li>
+<li><strong>Built-in Clinical Formula Library:</strong> Includes audited implementations for:<ul>
+<li><strong>eGFR (Estimated Glomerular Filtration Rate):</strong> Cockcroft-Gault equation with female gender coefficient (0.85).</li>
+<li><strong>BSA (Body Surface Area):</strong> Mosteller formula ($\sqrt{\frac{h \times w}{3600}}$) for oncological dosage calculations.</li>
+<li><strong>MME (Morphine Milligram Equivalents):</strong> Multi-factor opioid conversion matrix.</li>
+<li><strong>Anion Gap:</strong> Serum electrolyte balance equation ($[\text{Na}^+] - ([\text{Cl}^-] + [\text{HCO}_3^-])$).</li>
+</ul>
+</li>
+<li><strong>AST Security Guardrails:</strong> Strict Abstract Syntax Tree analysis blocks dangerous imports (<code>os</code>, <code>sys</code>, <code>subprocess</code>, <code>socket</code>), disk I/O, and eval/exec operations.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">src.agents.clinical_analyst_agent</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClinicalAnalystAgent</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">agent</span> <span class="o">=</span> <span class="n">ClinicalAnalystAgent</span><span class="p">()</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">response</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="s2">"Calculate eGFR for a 62-year-old female weighing 68 kg with serum creatinine 1.4 mg/dL."</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">reasoning</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Tool Output: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">code_interpreter_output</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div>
 
 
