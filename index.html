@@ -1652,14 +1652,21 @@
 
 
 <h1 id="mosaic-healthcare-enterprise-cloud-architecture-ma-governance-portal">Mosaic Healthcare Enterprise Cloud Architecture &amp; M&amp;A Governance Portal<a class="headerlink" href="#mosaic-healthcare-enterprise-cloud-architecture-ma-governance-portal" title="Permanent link">&para;</a></h1>
-<p><span class="badge badge-prod">Production Ready</span>
-<span class="badge badge-hitrust">HITRUST CSF v11</span>
-<span class="badge badge-hipaa">HIPAA Compliant</span>
+<p><span class="badge badge-prod">Real Production Infrastructure</span>
+<span class="badge badge-prod">Live CI/CD Builds</span>
+<span class="badge badge-simulated">Simulated Data &amp; Scenarios</span>
+<span class="badge badge-hitrust">HITRUST CSF v11 Controls</span>
+<span class="badge badge-hipaa">HIPAA Zero-PHI Spec</span>
 <span class="badge badge-approved">ARB Approved</span></p>
 <hr />
 <h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Infrastructure Integrity &amp; Data Classification Notice</p>
+<p><strong>Live Infrastructure &amp; Real Cloud Builds:</strong> The underlying cloud infrastructure, CI/CD automation pipelines, Microsoft Entra ID zero-trust governance engines, passwordless OIDC workload identity federation, and Terraform/OpenTofu blueprints across this portal and repository are <strong>100% real, functional, and deployed</strong>.</p>
+<p><strong>Simulated Healthcare Data &amp; Demonstration Scenarios:</strong> All clinical patient records, healthcare facility counts (140+ clinics/hospitals), telemetry datasets, provider references, and migration scenarios are <strong>simulated / synthetic data</strong> created for architectural validation, stress-testing, and compliance benchmarking. No real Protected Health Information (PHI) or live patient data is hosted or transmitted.</p>
+</div>
 <p>Welcome to the <strong>Mosaic Healthcare Enterprise Cloud Architecture &amp; M&amp;A Governance Portal</strong>. This portal serves as the single source of truth for enterprise cloud engineers, security architects, clinical informatics directors, and executive leadership (CIO/CISO/CMO). </p>
-<p>As a multi-regional integrated healthcare delivery network spanning <strong>140+ acute care hospitals, regional medical centers, ambulatory surgical suites, and research facilities</strong>, Mosaic Healthcare requires an ultra-resilient, zero-trust cloud infrastructure capable of ingesting streaming EHR (HL7 v2 / FHIR R4), DICOM PACS imaging, and operational telemetry while strictly observing <strong>HIPAA Security &amp; Privacy Rules</strong> and <strong>HITRUST CSF v11</strong> controls.</p>
+<p>As a simulated multi-regional integrated healthcare delivery network spanning <strong>140+ acute care hospitals, regional medical centers, ambulatory surgical suites, and research facilities</strong>, Mosaic Healthcare requires an ultra-resilient, zero-trust cloud infrastructure capable of ingesting streaming EHR (HL7 v2 / FHIR R4), DICOM PACS imaging, and operational telemetry while strictly observing <strong>HIPAA Security &amp; Privacy Rules</strong> and <strong>HITRUST CSF v11</strong> controls.</p>
 <pre class="mermaid"><code>graph TD
     subgraph "On-Premises Healthcare Edge"
         Clinics["140+ Regional Clinics &amp; Ambulatory Care&lt;br/&gt;(Cisco SD-WAN / IPsec VPN)"]

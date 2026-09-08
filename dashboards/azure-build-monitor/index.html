@@ -1635,11 +1635,18 @@
 
 
 <h1 id="azure-enterprise-build-telemetry-monitor">Azure Enterprise Build &amp; Telemetry Monitor<a class="headerlink" href="#azure-enterprise-build-telemetry-monitor" title="Permanent link">&para;</a></h1>
-<p><span class="badge badge-hitrust">Azure Entra ID Live</span>
+<p><span class="badge badge-prod">Live Real Infrastructure</span>
+<span class="badge badge-hitrust">Azure Entra ID Live</span>
+<span class="badge badge-simulated">Simulated Data Benchmarks</span>
 <span class="badge badge-hipaa">100% Zero-Trust Compliance</span></p>
 <hr />
 <h2 id="1-enterprise-build-pipeline-status">1. Enterprise Build &amp; Pipeline Status<a class="headerlink" href="#1-enterprise-build-pipeline-status" title="Permanent link">&para;</a></h2>
-<p>Real-time telemetry and operational status for all multi-cloud infrastructure builds, AI Foundry agent evaluation gates, and Microsoft Entra ID directory posture.</p>
+<div class="admonition info">
+<p class="admonition-title">Build &amp; Telemetry Verification</p>
+<p><strong>Operational Cloud Systems:</strong> The Microsoft Entra ID tenant (<code>18795ad0...</code>), GitHub Actions passwordless OIDC federation, OpenTofu execution environment, and CI/CD pipelines shown on this monitor are <strong>live, functional, and real</strong>.</p>
+<p><strong>Simulated Clinical Data:</strong> AI Foundry evaluation prompts, synthetic patient records, and migration simulation matrices are <strong>simulated datasets</strong> used to rigorously benchmark governance guardrails and verify HIPAA compliance without exposing actual clinical data.</p>
+</div>
+<p>Real-time telemetry and operational status for all multi-cloud infrastructure builds, AI Foundry agent evaluation gates, and Microsoft Entra ID directory posture:</p>
 <pre class="mermaid"><code>graph LR
     subgraph "Omarchy Arch Linux Node (192.168.50.53)"
         CLI["Azure CLI v2.87.0&lt;br/&gt;Authenticated: Global Admin"]
