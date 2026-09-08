@@ -127,3 +127,29 @@ You can execute model fine-tuning and RAG indexing programmatically:
 # Execute the AI Foundry Fine-Tuning and RAG Vector Indexing Pipeline
 python src/ai_foundry/agent_fine_tuning_and_rag.py
 ```
+
+---
+
+## 5. Sandboxed Code Interpreter Tool & Clinical Agent
+
+To eliminate LLM arithmetic hallucinations when dealing with critical dosage equations, laboratory indices, and statistical modeling, the model architecture integrates a sandboxed Python **Code Interpreter Tool**:
+
+- **Deterministic Execution:** Offloads complex clinical mathematics to an isolated Python AST runtime rather than relying on generative token probabilities.
+- **Built-in Clinical Formula Library:** Includes audited implementations for:
+    - **eGFR (Estimated Glomerular Filtration Rate):** Cockcroft-Gault equation with female gender coefficient (0.85).
+    - **BSA (Body Surface Area):** Mosteller formula ($\sqrt{\frac{h \times w}{3600}}$) for oncological dosage calculations.
+    - **MME (Morphine Milligram Equivalents):** Multi-factor opioid conversion matrix.
+    - **Anion Gap:** Serum electrolyte balance equation ($[\text{Na}^+] - ([\text{Cl}^-] + [\text{HCO}_3^-])$).
+- **AST Security Guardrails:** Strict Abstract Syntax Tree analysis blocks dangerous imports (`os`, `sys`, `subprocess`, `socket`), disk I/O, and eval/exec operations.
+
+```python
+from src.agents.clinical_analyst_agent import ClinicalAnalystAgent
+
+agent = ClinicalAnalystAgent()
+response = agent.run(
+    "Calculate eGFR for a 62-year-old female weighing 68 kg with serum creatinine 1.4 mg/dL."
+)
+print(response.reasoning)
+print(f"Tool Output: {response.code_interpreter_output}")
+```
+
