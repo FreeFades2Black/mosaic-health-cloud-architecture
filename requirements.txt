@@ -2,7 +2,6 @@
 mkdocs>=1.5.3
 mkdocs-material>=9.5.15
 pymdown-extensions>=10.7
-mkdocs-mermaid2-plugin>=1.1.1
 mkdocs-minify-plugin>=0.8.0
 
 # Testing and Validation Tools

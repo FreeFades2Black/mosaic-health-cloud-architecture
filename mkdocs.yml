@@ -56,14 +56,15 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - https://unpkg.com/mermaid@11/dist/mermaid.min.js
+  - javascripts/mermaid-instant.js
+
 # ------------------------------------------------------------------------------
 # PLUGINS
 # ------------------------------------------------------------------------------
 plugins:
   - search
-  - mermaid2:
-      arguments:
-        theme: dark
 
 # ------------------------------------------------------------------------------
 # MARKDOWN EXTENSIONS
@@ -75,7 +76,7 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:mermaid2.fence_mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
