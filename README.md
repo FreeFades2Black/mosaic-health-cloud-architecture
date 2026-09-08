@@ -55,6 +55,8 @@ mosaic-health-cloud-architecture/
 ├── docs/
 │   ├── index.md                              # Portal Home & Executive Architecture Overview
 │   ├── mosaic_key_vault_module.md            # Gunslinger Key Vault Blueprint Documentation
+│   ├── javascripts/
+│   │   └── mermaid-instant.js                # Instant Mermaid diagram renderer (document$ lifecycle hook for SPA)
 │   ├── stylesheets/
 │   │   └── extra.css                         # Custom Enterprise Portal Styles (Teal theme, badges, tables)
 │   ├── landing-zone/
