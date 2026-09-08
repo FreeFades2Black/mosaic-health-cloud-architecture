@@ -12,6 +12,10 @@
 
 The **Azure AI Foundry Enterprise Model Infrastructure** establishes a sovereign, zero-trust foundation for hosting, fine-tuning, and evaluating Large Language Models (LLMs) and multi-modal agents in regulated healthcare environments.
 
+!!! info "Dedicated Standalone AI Model Factory Repository"
+    The full codebase, OpenTofu infrastructure modules, Python SDK fine-tuning runners, and CI/CD policy gates for this architecture are maintained in the dedicated repository:  
+    👉 **[FreeFades2Black/mosaic-azure-ai-model-factory](https://github.com/FreeFades2Black/mosaic-azure-ai-model-factory)**
+
 !!! info "Infrastructure Integrity & Data Notice"
     **Real Azure Architecture:** The Terraform module, Azure AI Foundry Hub, OpenAI cognitive deployments, Azure AI Search service, and Private Link endpoints described here represent **100% real, deployable cloud infrastructure**.
     
