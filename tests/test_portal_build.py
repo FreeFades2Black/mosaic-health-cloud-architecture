@@ -190,3 +190,26 @@ def test_docker_and_ci_manifests():
     assert "FROM python:3.11-slim AS builder" in docker_content
     assert "FROM nginx:1.27-alpine AS runner" in docker_content
     assert "USER nginx" in docker_content
+
+
+def test_terraform_ai_foundry_module_integrity():
+    """Verify Azure AI Foundry Terraform module structure, resource definitions, and outputs."""
+    tf_dir = PROJECT_ROOT / "terraform" / "azure-ai-foundry-enterprise"
+    assert tf_dir.exists(), f"AI Foundry module directory missing at {tf_dir}"
+
+    main_tf = tf_dir / "main.tf"
+    variables_tf = tf_dir / "variables.tf"
+    outputs_tf = tf_dir / "outputs.tf"
+    tfvars_example = tf_dir / "terraform.tfvars.example"
+
+    for f in [main_tf, variables_tf, outputs_tf, tfvars_example]:
+        assert f.exists(), f"Terraform file missing: {f.name}"
+        assert f.stat().st_size > 200, f"Terraform file {f.name} is unexpectedly small"
+
+    main_content = main_tf.read_text(encoding="utf-8")
+    assert "azurerm_cognitive_account" in main_content
+    assert "azurerm_cognitive_deployment" in main_content
+    assert "azurerm_search_service" in main_content
+    assert "azurerm_ai_foundry" in main_content
+    assert "azurerm_ai_foundry_project" in main_content
+

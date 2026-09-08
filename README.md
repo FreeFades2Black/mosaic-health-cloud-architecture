@@ -71,7 +71,8 @@ mosaic-health-cloud-architecture/
 │   │   ├── index.md                          # Azure Landing Zone & Hybrid Backbone Overview
 │   │   ├── management-groups.md              # Management Group Hierarchy (Root -> Platform -> Workloads)
 │   │   ├── hybrid-networking.md              # Hub-and-Spoke, vWAN, ExpressRoute, Dual IPsec VPN, Azure FW
-│   │   └── identity-access.md                # Entra ID Hybrid Sync, Conditional Access, PIM Workflows
+│   │   ├── identity-access.md                # Entra ID Hybrid Sync, Conditional Access, PIM Workflows
+│   │   └── ai-foundry-model-infrastructure.md # Azure AI Foundry Hub, Project, GPT-4o, AI Search RAG Blueprint
 │   ├── ma-playbook/
 │   │   ├── index.md                          # M&A Due Diligence & Workload Migration Engine Overview
 │   │   ├── due-diligence-checklist.md        # Discovery Checklist (VMware, SAN, AD levels, Public cloud)
@@ -94,10 +95,16 @@ mosaic-health-cloud-architecture/
 │       └── adr-003-tenant-consolidation.md   # ADR-003: Tenant Consolidation Strategy (Coexistence vs Cutover)
 ├── src/
 │   ├── ai_foundry/
-│   │   └── agent_evaluator.py                # Azure AI Foundry Content Safety, Groundedness & PHI Scanner
+│   │   ├── agent_evaluator.py                # Azure AI Foundry Content Safety, Groundedness & PHI Scanner
+│   │   └── agent_fine_tuning_and_rag.py      # Automated Model Fine-Tuning & AI Search RAG Pipeline
 │   └── governance/
 │       └── entra_security_auditor.py         # Microsoft Entra ID Zero-Trust Posture Auditor
 ├── terraform/
+│   ├── azure-ai-foundry-enterprise/          # Azure AI Foundry Hub, Project, GPT-4o, AI Search & Safety
+│   │   ├── main.tf                           # Multi-Service OpenAI, AI Foundry Hub/Project, AI Search
+│   │   ├── variables.tf                      # Annotated variable types, validations, and TPM capacity
+│   │   ├── outputs.tf                        # Endpoint URIs, Hub IDs, and MSI Principal IDs
+│   │   └── terraform.tfvars.example          # Sanitized enterprise variables example
 │   └── gunslinger-secure-vault/
 │       ├── main.tf                           # HITRUST-compliant Key Vault with private endpoints (Annotated)
 │       ├── variables.tf                      # Annotated variables with regex validation rules

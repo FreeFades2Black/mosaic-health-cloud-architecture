@@ -107,6 +107,7 @@ nav:
       - Management Group Hierarchy: landing-zone/management-groups.md
       - Hybrid Networking & vWAN: landing-zone/hybrid-networking.md
       - Identity, Entra ID & PIM: landing-zone/identity-access.md
+      - AI Foundry Model Infrastructure: landing-zone/ai-foundry-model-infrastructure.md
   - M&A Migration Engine:
       - M&A Playbook Overview: ma-playbook/index.md
       - Due Diligence Checklist: ma-playbook/due-diligence-checklist.md
