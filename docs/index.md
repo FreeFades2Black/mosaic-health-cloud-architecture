@@ -1,17 +1,24 @@
 # Mosaic Healthcare Enterprise Cloud Architecture & M&A Governance Portal
 
-<span class="badge badge-prod">Production Ready</span>
-<span class="badge badge-hitrust">HITRUST CSF v11</span>
-<span class="badge badge-hipaa">HIPAA Compliant</span>
+<span class="badge badge-prod">Real Production Infrastructure</span>
+<span class="badge badge-prod">Live CI/CD Builds</span>
+<span class="badge badge-simulated">Simulated Data & Scenarios</span>
+<span class="badge badge-hitrust">HITRUST CSF v11 Controls</span>
+<span class="badge badge-hipaa">HIPAA Zero-PHI Spec</span>
 <span class="badge badge-approved">ARB Approved</span>
 
 ---
 
 ## Executive Summary
 
+!!! info "Infrastructure Integrity & Data Classification Notice"
+    **Live Infrastructure & Real Cloud Builds:** The underlying cloud infrastructure, CI/CD automation pipelines, Microsoft Entra ID zero-trust governance engines, passwordless OIDC workload identity federation, and Terraform/OpenTofu blueprints across this portal and repository are **100% real, functional, and deployed**.
+    
+    **Simulated Healthcare Data & Demonstration Scenarios:** All clinical patient records, healthcare facility counts (140+ clinics/hospitals), telemetry datasets, provider references, and migration scenarios are **simulated / synthetic data** created for architectural validation, stress-testing, and compliance benchmarking. No real Protected Health Information (PHI) or live patient data is hosted or transmitted.
+
 Welcome to the **Mosaic Healthcare Enterprise Cloud Architecture & M&A Governance Portal**. This portal serves as the single source of truth for enterprise cloud engineers, security architects, clinical informatics directors, and executive leadership (CIO/CISO/CMO). 
 
-As a multi-regional integrated healthcare delivery network spanning **140+ acute care hospitals, regional medical centers, ambulatory surgical suites, and research facilities**, Mosaic Healthcare requires an ultra-resilient, zero-trust cloud infrastructure capable of ingesting streaming EHR (HL7 v2 / FHIR R4), DICOM PACS imaging, and operational telemetry while strictly observing **HIPAA Security & Privacy Rules** and **HITRUST CSF v11** controls.
+As a simulated multi-regional integrated healthcare delivery network spanning **140+ acute care hospitals, regional medical centers, ambulatory surgical suites, and research facilities**, Mosaic Healthcare requires an ultra-resilient, zero-trust cloud infrastructure capable of ingesting streaming EHR (HL7 v2 / FHIR R4), DICOM PACS imaging, and operational telemetry while strictly observing **HIPAA Security & Privacy Rules** and **HITRUST CSF v11** controls.
 
 ```mermaid
 graph TD

@@ -1,13 +1,20 @@
 # Azure Enterprise Build & Telemetry Monitor
 
+<span class="badge badge-prod">Live Real Infrastructure</span>
 <span class="badge badge-hitrust">Azure Entra ID Live</span>
+<span class="badge badge-simulated">Simulated Data Benchmarks</span>
 <span class="badge badge-hipaa">100% Zero-Trust Compliance</span>
 
 ---
 
 ## 1. Enterprise Build & Pipeline Status
 
-Real-time telemetry and operational status for all multi-cloud infrastructure builds, AI Foundry agent evaluation gates, and Microsoft Entra ID directory posture.
+!!! info "Build & Telemetry Verification"
+    **Operational Cloud Systems:** The Microsoft Entra ID tenant (`18795ad0...`), GitHub Actions passwordless OIDC federation, OpenTofu execution environment, and CI/CD pipelines shown on this monitor are **live, functional, and real**.
+    
+    **Simulated Clinical Data:** AI Foundry evaluation prompts, synthetic patient records, and migration simulation matrices are **simulated datasets** used to rigorously benchmark governance guardrails and verify HIPAA compliance without exposing actual clinical data.
+
+Real-time telemetry and operational status for all multi-cloud infrastructure builds, AI Foundry agent evaluation gates, and Microsoft Entra ID directory posture:
 
 ```mermaid
 graph LR

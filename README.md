@@ -4,11 +4,19 @@
 [![AI Foundry Gate](https://github.com/FreeFades2Black/mosaic-health-cloud-architecture/actions/workflows/ai-foundry-regulation.yml/badge.svg)](https://github.com/FreeFades2Black/mosaic-health-cloud-architecture/actions/workflows/ai-foundry-regulation.yml)
 [![Azure OIDC Test](https://github.com/FreeFades2Black/mosaic-health-cloud-architecture/actions/workflows/test-azure-connection.yml/badge.svg)](https://github.com/FreeFades2Black/mosaic-health-cloud-architecture/actions/workflows/test-azure-connection.yml)
 [![Deploy Azure Infra](https://github.com/FreeFades2Black/mosaic-health-cloud-architecture/actions/workflows/deploy-azure-resources.yml/badge.svg)](https://github.com/FreeFades2Black/mosaic-health-cloud-architecture/actions/workflows/deploy-azure-resources.yml)
+[![Infrastructure](https://img.shields.io/badge/Infrastructure-Real%20Production%20Builds-2e7d32?style=flat&logo=microsoftazure)](https://freefades2black.github.io/mosaic-health-cloud-architecture/)
+[![Data](https://img.shields.io/badge/Data-Simulated%20%2F%20Synthetic-orange?style=flat)](https://freefades2black.github.io/mosaic-health-cloud-architecture/#executive-summary)
 [![GitHub Pages Live Portal](https://img.shields.io/badge/GitHub%20Pages-Live%20Portal-teal?style=flat&logo=github)](https://freefades2black.github.io/mosaic-health-cloud-architecture/)
 [![Compliance](https://img.shields.io/badge/Compliance-HITRUST%20CSF%20v11%20%7C%20HIPAA-purple?style=flat)](https://freefades2black.github.io/mosaic-health-cloud-architecture/compliance-hitrust/)
 [![Architecture](https://img.shields.io/badge/Architecture-Azure%20Landing%20Zone%20vWAN-0078D4?style=flat&logo=microsoftazure)](https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/)
 [![Containerized](https://img.shields.io/badge/Docker-Multi--Stage%20Alpine-2496ED?style=flat&logo=docker)](Dockerfile)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+
+---
+
+> ### ℹ️ **Infrastructure Integrity & Data Classification Notice**
+> - **Real Infrastructure & Builds:** All cloud architectures, Terraform/OpenTofu modules, Microsoft Entra ID zero-trust posture scanners, GitHub Actions CI/CD workflows, and passwordless OIDC Workload Identity Federation in this repository are **100% real, functional, and deployed**.
+> - **Simulated Data & Scenarios:** All clinical records, hospital/clinic counts (140+ clinics), telemetry streams, patient metrics, and M&A migration scenarios are **simulated / synthetic reference data** created for architectural validation, governance testing, and HITRUST/HIPAA control simulation. No actual Protected Health Information (PHI) or live patient data is hosted or transmitted.
 
 ---
 
