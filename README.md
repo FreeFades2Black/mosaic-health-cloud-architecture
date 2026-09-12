@@ -14,44 +14,44 @@
 
 ---
 
-> ### ℹ️ **Infrastructure Integrity & Data Classification Notice**
-> - **Real Infrastructure & Builds:** All cloud architectures, Terraform/OpenTofu modules, Microsoft Entra ID zero-trust posture scanners, GitHub Actions CI/CD workflows, and passwordless OIDC Workload Identity Federation in this repository are **100% real, functional, and deployed**.
-> - **Simulated Data & Scenarios:** All clinical records, hospital/clinic counts (140+ clinics), telemetry streams, patient metrics, and M&A migration scenarios are **simulated / synthetic reference data** created for architectural validation, governance testing, and HITRUST/HIPAA control simulation. No actual Protected Health Information (PHI) or live patient data is hosted or transmitted.
+> ### Architecture Verification & Data Classification Notice
+> - **Production Infrastructure & IaC:** Cloud architectures, Terraform modules, Microsoft Entra ID zero-trust posture scanners, GitHub Actions CI/CD workflows, and passwordless OIDC Workload Identity Federation in this repository are functional and validated.
+> - **Simulated Reference Data:** Clinical records, facility topologies (140+ clinics), telemetry streams, patient metrics, and M&A migration scenarios are simulated reference models created for architectural validation, governance testing, and HITRUST/HIPAA control simulation. No actual Protected Health Information (PHI) is hosted or transmitted.
 
 ---
 
-## 🌐 Live GitHub Pages Portal Location
+## Live GitHub Pages Architecture Portal
 
-> ### 🔗 **Primary Live Portal:** [https://freefades2black.github.io/mosaic-health-cloud-architecture/](https://freefades2black.github.io/mosaic-health-cloud-architecture/)
-> Hosted directly on **GitHub Pages** via automated GitHub Actions continuous delivery from the `gh-pages` branch.
+> **Primary Live Portal:** [https://freefades2black.github.io/mosaic-health-cloud-architecture/](https://freefades2black.github.io/mosaic-health-cloud-architecture/)  
+> Hosted on GitHub Pages via automated GitHub Actions continuous delivery from the `gh-pages` branch.
 
-### 📍 Direct Live Route Index
+### Architecture Portal Index
 
-| Portal Section | Live GitHub Pages Location | Focus Area |
+| Portal Section | Live Architecture Location | Focus Area |
 | :--- | :--- | :--- |
-| **🏠 Portal Home** | [Portal Index](https://freefades2black.github.io/mosaic-health-cloud-architecture/) | Executive summary, four pillars, system context topology, and governance overview. |
-| **☁️ Azure Landing Zone** | [Landing Zone Overview](https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/) | Microsoft Cloud Adoption Framework (CAF) healthcare foundation. |
-| **🏢 Management Groups** | [Management Group Hierarchy](https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/management-groups/) | Hierarchical subscription placement, root Azure Policy sets, and Subscription Vending Machine (SVM). |
-| **🌐 Hybrid Networking** | [vWAN & Hybrid Backbone](https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/hybrid-networking/) | Azure Virtual WAN Secured Hub, 10G ExpressRoute, Dual IPsec VPN, and Azure Firewall Premium IDPS. |
-| **🔐 Identity & Access** | [Entra ID, PIM & Zero-Trust](https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/identity-access/) | Hybrid identity synchronization, Phishing-Resistant FIDO2 MFA, and Just-in-Time (JIT) PIM elevation. |
-| **📋 M&A Due Diligence** | [Due Diligence Checklist](https://freefades2black.github.io/mosaic-health-cloud-architecture/ma-playbook/due-diligence-checklist/) | 8-pillar technical discovery audit (Active Directory, VMware, SAN, CIDR overlap, cyber risk). |
-| **⚡ Wave Migration** | [Wave Sequencer & Rollback](https://freefades2black.github.io/mosaic-health-cloud-architecture/ma-playbook/wave-migration-sequencer/) | 5-R workload rationalization, 4-phase cutover schedule, Go/No-Go gates, and automated rollback triggers. |
-| **🛡️ HITRUST Control Matrix** | [Control Mapping Matrix](https://freefades2black.github.io/mosaic-health-cloud-architecture/compliance-hitrust/control-mapping-matrix/) | Searchable ledger mapping HIPAA § 164.312 and HITRUST CSF v11 domains to technical Azure controls. |
-| **📊 Centralized Logging** | [Audit Evidence Pipeline](https://freefades2black.github.io/mosaic-health-cloud-architecture/compliance-hitrust/audit-evidence-logging/) | 730-day hot analytics in Log Analytics Workspace + 7-year immutable WORM archive in Azure Blob Storage. |
-| **🤖 AI Foundry Governance** | [AI Foundry & Model Regulation](https://freefades2black.github.io/mosaic-health-cloud-architecture/compliance-hitrust/ai-foundry-governance/) | Automated evaluation gates, Content Safety thresholds, groundedness scoring, and HIPAA PHI redaction. |
-| **🧠 AI Model Factory Repo** | [mosaic-azure-ai-model-factory](https://github.com/FreeFades2Black/mosaic-azure-ai-model-factory) | Standalone repository for fine-tuning, RAG vector pipelines, OpenTofu blueprints, and safety shields. |
-| **🗺️ Multi-Cloud Matrix** | [AWS vs GCP vs Azure](https://freefades2black.github.io/mosaic-health-cloud-architecture/multicloud-matrix/aws-gcp-azure-mapping/) | Rosetta Stone translation table across IAM, Transit Networking, Object Storage, and SIEM. |
-| **⚖️ Workload Rationalization**| [Migration Decision Framework](https://freefades2black.github.io/mosaic-health-cloud-architecture/multicloud-matrix/migration-rationalization/) | Economic and clinical latency decision tree for consolidating acquired cloud assets. |
-| **📜 ARB Decision Registry** | [ADR Index](https://freefades2black.github.io/mosaic-health-cloud-architecture/arb-adrs/) | Architecture Review Board governance charter and formal decision lifecycle. |
-| **📝 ADR-001 (vWAN)** | [ADR-001: vWAN Ingress](https://freefades2black.github.io/mosaic-health-cloud-architecture/arb-adrs/adr-001-vwan-hub-spoke/) | Adoption of Azure Virtual WAN Secured Hub for 140+ clinic network ingress. |
-| **🔑 ADR-002 (CMK)** | [ADR-002: Key Vault CMK](https://freefades2black.github.io/mosaic-health-cloud-architecture/arb-adrs/adr-002-key-vault-cmk/) | Customer-Managed Keys via FIPS 140-2 Level 3 HSM for all clinical data stores. |
-| **🤝 ADR-003 (M&A Tenant)** | [ADR-003: Tenant Consolidation](https://freefades2black.github.io/mosaic-health-cloud-architecture/arb-adrs/adr-003-tenant-consolidation/) | 3-phase cross-tenant coexistence model for zero clinical disruption during mergers. |
-| **📊 Build Monitor Dashboard** | [Azure Build & Governance Monitor](https://freefades2black.github.io/mosaic-health-cloud-architecture/dashboards/azure-build-monitor/) | Real-time telemetry, Entra ID status, OIDC Workload Identity, and test suite metrics. |
-| **🏗️ Terraform Module** | [Gunslinger Secure Vault](https://freefades2black.github.io/mosaic-health-cloud-architecture/mosaic_key_vault_module/) | Annotated production Terraform module with private endpoints and auto-rotation policies. |
+| **Portal Home** | [Portal Index](https://freefades2black.github.io/mosaic-health-cloud-architecture/) | Architecture overview, four core pillars, topology, and governance framework. |
+| **Azure Landing Zone** | [Landing Zone Overview](https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/) | Microsoft Cloud Adoption Framework (CAF) healthcare foundation. |
+| **Management Groups** | [Management Group Hierarchy](https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/management-groups/) | Hierarchical subscription placement, root Azure Policy sets, and Subscription Vending Machine (SVM). |
+| **Hybrid Networking** | [vWAN & Hybrid Backbone](https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/hybrid-networking/) | Azure Virtual WAN Secured Hub, 10G ExpressRoute, Dual IPsec VPN, and Azure Firewall Premium IDPS. |
+| **Identity & Access** | [Entra ID, PIM & Zero-Trust](https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/identity-access/) | Hybrid identity synchronization, FIDO2 MFA enforcement, and Just-in-Time (JIT) PIM elevation. |
+| **M&A Due Diligence** | [Due Diligence Checklist](https://freefades2black.github.io/mosaic-health-cloud-architecture/ma-playbook/due-diligence-checklist/) | 8-pillar technical discovery audit (Active Directory, VMware, SAN, CIDR overlap, cyber risk). |
+| **Wave Migration** | [Wave Sequencer & Rollback](https://freefades2black.github.io/mosaic-health-cloud-architecture/ma-playbook/wave-migration-sequencer/) | 5-R workload rationalization, cutover schedule, Go/No-Go gates, and automated rollback triggers. |
+| **HITRUST Control Matrix** | [Control Mapping Matrix](https://freefades2black.github.io/mosaic-health-cloud-architecture/compliance-hitrust/control-mapping-matrix/) | Searchable ledger mapping HIPAA § 164.312 and HITRUST CSF v11 domains to technical Azure controls. |
+| **Centralized Logging** | [Audit Evidence Pipeline](https://freefades2black.github.io/mosaic-health-cloud-architecture/compliance-hitrust/audit-evidence-logging/) | 730-day analytics in Log Analytics Workspace + 7-year immutable WORM archive in Azure Blob Storage. |
+| **AI Foundry Governance** | [AI Foundry & Model Regulation](https://freefades2black.github.io/mosaic-health-cloud-architecture/compliance-hitrust/ai-foundry-governance/) | Automated evaluation gates, Content Safety thresholds, groundedness scoring, and HIPAA PHI redaction. |
+| **AI Model Factory Repo** | [mosaic-azure-ai-model-factory](https://github.com/FreeFades2Black/mosaic-azure-ai-model-factory) | Dedicated repository for fine-tuning, RAG vector pipelines, OpenTofu blueprints, and safety shields. |
+| **Multi-Cloud Matrix** | [AWS vs GCP vs Azure](https://freefades2black.github.io/mosaic-health-cloud-architecture/multicloud-matrix/aws-gcp-azure-mapping/) | Service translation table across IAM, Transit Networking, Object Storage, and SIEM. |
+| **Workload Rationalization**| [Migration Decision Framework](https://freefades2black.github.io/mosaic-health-cloud-architecture/multicloud-matrix/migration-rationalization/) | Economic and clinical latency decision tree for consolidating acquired cloud assets. |
+| **ARB Decision Registry** | [ADR Index](https://freefades2black.github.io/mosaic-health-cloud-architecture/arb-adrs/) | Architecture Review Board governance charter and formal decision lifecycle. |
+| **ADR-001 (vWAN)** | [ADR-001: vWAN Ingress](https://freefades2black.github.io/mosaic-health-cloud-architecture/arb-adrs/adr-001-vwan-hub-spoke/) | Adoption of Azure Virtual WAN Secured Hub for 140+ clinic network ingress. |
+| **ADR-002 (CMK)** | [ADR-002: Key Vault CMK](https://freefades2black.github.io/mosaic-health-cloud-architecture/arb-adrs/adr-002-key-vault-cmk/) | Customer-Managed Keys via FIPS 140-2 Level 3 HSM for all clinical data stores. |
+| **ADR-003 (M&A Tenant)** | [ADR-003: Tenant Consolidation](https://freefades2black.github.io/mosaic-health-cloud-architecture/arb-adrs/adr-003-tenant-consolidation/) | 3-phase cross-tenant coexistence model for clinical continuity during mergers. |
+| **Build Monitor Dashboard** | [Azure Build & Governance Monitor](https://freefades2black.github.io/mosaic-health-cloud-architecture/dashboards/azure-build-monitor/) | Telemetry status, Entra ID posture, OIDC Workload Identity, and test suite metrics. |
+| **Terraform Module** | [Gunslinger Secure Vault](https://freefades2black.github.io/mosaic-health-cloud-architecture/mosaic_key_vault_module/) | Annotated Terraform module with private endpoints and auto-rotation policies. |
 
 ---
 
-## 📂 Repository File & Directory Structure
+## Repository Structure
 
 ```
 mosaic-health-cloud-architecture/
@@ -130,9 +130,9 @@ mosaic-health-cloud-architecture/
 
 ---
 
-## 🏛️ Executive Architecture Overview
+## Enterprise Architecture Overview
 
-The **Mosaic Health Cloud Architecture & M&A Governance Portal** delivers a unified single source of truth for an integrated healthcare delivery network of **140+ acute care hospitals, regional medical centers, ambulatory clinics, and research laboratories**.
+The **Mosaic Health Cloud Architecture & M&A Governance Portal** delivers an architectural baseline for an integrated healthcare delivery network of 140+ acute care hospitals, regional medical centers, ambulatory clinics, and research laboratories.
 
 ```mermaid
 graph TD
@@ -183,7 +183,7 @@ graph TD
 
 ---
 
-## 🤖 Azure AI Foundry Model Regulation & Governance Engine
+## Azure AI Foundry Model Regulation & Governance Engine
 
 Clinical agents deployed to **Microsoft Azure AI Foundry** are governed via pre-deployment continuous evaluation gates:
 
@@ -193,9 +193,9 @@ graph LR
     PromptShield --> HarmEval["Azure AI Content Safety<br/>(Hate/Violence Severity = 0)"]
     HarmEval --> Groundedness["Groundedness Evaluator<br/>(Threshold Score >= 4.0 / 5.0)"]
     Groundedness --> PHIScanner["HIPAA PHI / PII Scanner<br/>(0 Unredacted Tokens)"]
-    PHIScanner --> GateApproved["✅ Approved for Clinical Ingestion"]
+    PHIScanner --> GateApproved["Approved for Clinical Ingestion"]
     
-    HarmEval -.->|Violation| Quarantined["❌ Quarantined to Sentinel SIEM"]
+    HarmEval -.->|Violation| Quarantined["Quarantined to Sentinel SIEM"]
     Groundedness -.->|Score < 4.0| Quarantined
     PHIScanner -.->|PHI Token| Quarantined
 ```
@@ -207,41 +207,48 @@ graph LR
 
 ---
 
-## 🔐 Zero-Secret GitHub Actions Workload Identity Federation (OIDC)
+## Workload Identity Federation (Azure OIDC)
 
 Deployments to Microsoft Azure authenticate using passwordless **OpenID Connect (OIDC)**:
 * **Entra ID Tenant ID:** `${{ secrets.AZURE_TENANT_ID }}`
 * **Service Principal App ID:** `${{ secrets.AZURE_CLIENT_ID }}`
 * **Federated Credential:** Linked directly to `repo:FreeFades2Black/mosaic-health-cloud-architecture:ref:refs/heads/main`
-* **Zero Long-Lived Credentials:** No secrets, passwords, or certificates stored in CI/CD.
+* **Zero Long-Lived Credentials:** No stored client secrets, passwords, or certificates in CI/CD.
 
 ---
 
-## 🧪 Automated Testing & Verification Suite
+## Build Verification & Concrete Test Artifacts
 
-The repository contains a full automated testing and governance verification suite (**16/16 test suites passing**):
-
-```bash
-# Run all automated tests (Portal + AI Foundry + Entra ID Governance)
-pytest tests/ -v
-```
+The repository contains an automated governance and testing verification suite (17/17 tests passing):
 
 ```text
 ============================= test session starts =============================
-platform win32 / linux -- Python 3.11 / 3.14, pytest-9.1.1
-rootdir: mosaic-health-cloud-architecture
-collected 16 items
+platform win32 -- Python 3.11.0, pytest-9.1.1, pluggy-1.6.0
+rootdir: C:\Users\FreeF\projects\mosaic-health-cloud-architecture
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.14.2
+collected 17 items
 
-tests/test_entra_auditor.py ..                                           [ 12%]
-tests/test_foundry_agent_regulation.py ......                            [ 50%]
-tests/test_portal_build.py ........                                      [100%]
+tests\test_entra_auditor.py ..                                           [ 11%]
+tests\test_foundry_agent_regulation.py ......                            [ 47%]
+tests\test_portal_build.py .........                                     [100%]
 
-============================= 16 passed in 0.04s ==============================
+============================= 17 passed in 0.12s ==============================
 ```
+
+### Documented Architecture Edge Cases & Trade-Offs
+
+1. **vWAN Secured Hub vs. Direct ExpressRoute Peering (ADR-001):**
+   - *Trade-off:* Centralizing inspection through Azure Firewall Premium inside the Virtual WAN hub adds ~2-4ms latency compared to direct VNet peering, but provides mandatory TLS inspection and HIPAA § 164.312(e)(1) intrusion detection across all 140+ clinics without distributed firewall management overhead.
+2. **Key Vault CMK Auto-Rotation vs. Active DB Connection Pools (ADR-002):**
+   - *Edge Case:* When FIPS 140-2 Level 3 HSM keys rotate, existing database connections must not terminate abruptly. The architecture implements dual-version key coexistence during a 48-hour drain period to prevent clinical session dropouts.
+3. **Clinical Terminology False Positives in AI Content Safety:**
+   - *Edge Case:* Anatomical and surgical descriptions can trigger generic toxicity filters. The evaluation engine integrates a custom clinical allowlist dictionary that suppresses false positive classifications while enforcing zero-tolerance on non-clinical harms.
 
 ---
 
-## 📄 License & Architecture Review Board
+## License & Architecture Review Board
 
 Copyright &copy; 2026 Mosaic Healthcare Enterprise Architecture & Infrastructure Operations.  
 Licensed under the **Apache-2.0 License**.
