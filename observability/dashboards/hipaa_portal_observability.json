@@ -1,0 +1,70 @@
+{
+  "title": "Mosaic Healthcare Platform Golden Signals",
+  "schemaVersion": 38,
+  "panels": [
+    {
+      "title": "FHIR API p95 Request Latency (ms)",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, rate(fhir_request_duration_ms_bucket[5m]))",
+          "legendFormat": "p95 Latency"
+        }
+      ]
+    },
+    {
+      "title": "FHIR API HTTP 429 Throttled Calls",
+      "type": "stat",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "sum(rate(fhir_requests_total{status=\"429\"}[5m]))",
+          "legendFormat": "Throttled Calls"
+        }
+      ]
+    },
+    {
+      "title": "Active Clinician SMART-on-FHIR Sessions",
+      "type": "stat",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "targets": [
+        {
+          "expr": "sum(entra_active_sessions_total)",
+          "legendFormat": "Active Clinicians"
+        }
+      ]
+    },
+    {
+      "title": "WORM Immutability Verification Failures",
+      "type": "gauge",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "targets": [
+        {
+          "expr": "sum(hipaa_worm_audit_errors_total)",
+          "legendFormat": "WORM Failures"
+        }
+      ]
+    }
+  ]
+}

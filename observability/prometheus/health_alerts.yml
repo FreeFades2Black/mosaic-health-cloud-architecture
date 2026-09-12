@@ -1,0 +1,22 @@
+groups:
+  - name: mosaic_health_alerts
+    rules:
+      - alert: FHIRApiThrottlingSpike
+        expr: sum(rate(fhir_requests_total{status="429"}[5m])) > 10
+        for: 2m
+        labels:
+          severity: critical
+          tier: healthcare
+        annotations:
+          summary: "Azure FHIR API HTTP 429 Throttling detected"
+          description: "High volume of rate-limited requests to Azure Health Data Services. Bulk ingestion scale up required."
+
+      - alert: EntraIDAuthFailureSurge
+        expr: sum(rate(entra_auth_failures_total[5m])) > 5
+        for: 3m
+        labels:
+          severity: warning
+          tier: identity
+        annotations:
+          summary: "Spike in Clinician Entra ID authentication failures"
+          description: "Potential credential stuffing or expired SMART-on-FHIR token signing keys."
