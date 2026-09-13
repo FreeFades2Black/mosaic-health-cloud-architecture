@@ -85,11 +85,11 @@ The centralized Azure Firewall Premium in the Secured Virtual Hub inspects all E
 
 ```mermaid
 flowchart LR
-    Ingress[Inbound Traffic from Clinic / Spoke] --> SNI[TLS 1.3 SNI Header Inspection]
-    SNI --> IDPS[Signature-based IDPS Engine<br/>(67,000+ Healthcare Threat Rules)]
-    IDPS --> FQDN[Application Rule Engine<br/>(FQDN & Web Category Filtering)]
-    FQDN -->|Allowed| Dest[Destination Private Endpoint / Spoke]
-    FQDN -->|Blocked / Malicious| Drop[Automated Drop & Sentinel Alert Incident]
+    Ingress["Inbound Traffic from Clinic / Spoke"] --> SNI["TLS 1.3 SNI Header Inspection"]
+    SNI --> IDPS["Signature-based IDPS Engine<br/>(67,000+ Healthcare Threat Rules)"]
+    IDPS --> FQDN["Application Rule Engine<br/>(FQDN & Web Category Filtering)"]
+    FQDN -->|Allowed| Dest["Destination Private Endpoint / Spoke"]
+    FQDN -->|"Blocked / Malicious"| Drop["Automated Drop & Sentinel Alert Incident"]
 ```
 
 ### Key Firewall Rule Collections
