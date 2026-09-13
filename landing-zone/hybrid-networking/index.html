@@ -1808,11 +1808,11 @@
 <h2 id="3-azure-firewall-premium-security-policies">3. Azure Firewall Premium Security Policies<a class="headerlink" href="#3-azure-firewall-premium-security-policies" title="Permanent link">&para;</a></h2>
 <p>The centralized Azure Firewall Premium in the Secured Virtual Hub inspects all East-West (Spoke-to-Spoke) and North-South (EHR-to-OnPrem / Internet) traffic:</p>
 <pre class="mermaid"><code>flowchart LR
-    Ingress[Inbound Traffic from Clinic / Spoke] --&gt; SNI[TLS 1.3 SNI Header Inspection]
-    SNI --&gt; IDPS[Signature-based IDPS Engine&lt;br/&gt;(67,000+ Healthcare Threat Rules)]
-    IDPS --&gt; FQDN[Application Rule Engine&lt;br/&gt;(FQDN &amp; Web Category Filtering)]
-    FQDN --&gt;|Allowed| Dest[Destination Private Endpoint / Spoke]
-    FQDN --&gt;|Blocked / Malicious| Drop[Automated Drop &amp; Sentinel Alert Incident]</code></pre>
+    Ingress["Inbound Traffic from Clinic / Spoke"] --&gt; SNI["TLS 1.3 SNI Header Inspection"]
+    SNI --&gt; IDPS["Signature-based IDPS Engine&lt;br/&gt;(67,000+ Healthcare Threat Rules)"]
+    IDPS --&gt; FQDN["Application Rule Engine&lt;br/&gt;(FQDN &amp; Web Category Filtering)"]
+    FQDN --&gt;|Allowed| Dest["Destination Private Endpoint / Spoke"]
+    FQDN --&gt;|"Blocked / Malicious"| Drop["Automated Drop &amp; Sentinel Alert Incident"]</code></pre>
 <h3 id="key-firewall-rule-collections">Key Firewall Rule Collections<a class="headerlink" href="#key-firewall-rule-collections" title="Permanent link">&para;</a></h3>
 <ol>
 <li><strong>Clinical Ingestion (HL7 / FHIR):</strong></li>
