@@ -2,90 +2,98 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/mosaic_key_vault_module/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
+    </url>
+    <url>
+         <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/adr/0001-azure-health-data-services-fhir-spine/</loc>
+         <lastmod>2026-09-13</lastmod>
+    </url>
+    <url>
+         <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/adr/0002-immutable-audit-logging-worm-storage/</loc>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/arb-adrs/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/arb-adrs/adr-001-vwan-hub-spoke/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/arb-adrs/adr-002-key-vault-cmk/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/arb-adrs/adr-003-tenant-consolidation/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/compliance-hitrust/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/compliance-hitrust/ai-foundry-governance/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/compliance-hitrust/audit-evidence-logging/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/compliance-hitrust/control-mapping-matrix/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/dashboards/azure-build-monitor/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/ai-foundry-model-infrastructure/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/hybrid-networking/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/identity-access/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/landing-zone/management-groups/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/ma-playbook/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/ma-playbook/due-diligence-checklist/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/ma-playbook/wave-migration-sequencer/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/multicloud-matrix/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/multicloud-matrix/aws-gcp-azure-mapping/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
     <url>
          <loc>https://freefades2black.github.io/mosaic-health-cloud-architecture/multicloud-matrix/migration-rationalization/</loc>
-         <lastmod>2026-09-08</lastmod>
+         <lastmod>2026-09-13</lastmod>
     </url>
 </urlset>
