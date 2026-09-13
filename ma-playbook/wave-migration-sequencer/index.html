@@ -1810,10 +1810,10 @@
 <pre class="mermaid"><code>flowchart TD
     CutoverStart[Cutover Execution Window Initiated] --&gt; Monitor{Continuous Metric Monitoring}
 
-    Monitor --&gt;|Condition A: Database Lag &gt; 120s| EngageRollback[Engage Automated Rollback]
-    Monitor --&gt;|Condition B: Clinical Interface Error Rate &gt; 0.5%| EngageRollback
-    Monitor --&gt;|Condition C: Network Packet Loss &gt; 2% for 5 mins| EngageRollback
-    Monitor --&gt;|All Metrics Nominal| Validate[Clinical Workflow Validation Passed]
+    Monitor --&gt;|"Condition A: Database Lag &gt; 120s"| EngageRollback[Engage Automated Rollback]
+    Monitor --&gt;|"Condition B: Clinical Interface Error Rate &gt; 0.5%"| EngageRollback
+    Monitor --&gt;|"Condition C: Network Packet Loss &gt; 2% for 5 mins"| EngageRollback
+    Monitor --&gt;|"All Metrics Nominal"| Validate[Clinical Workflow Validation Passed]
 
     Validate --&gt; Finalize[Commit Cutover &amp; Update DNS Records]
 
