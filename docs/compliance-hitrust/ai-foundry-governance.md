@@ -54,7 +54,7 @@ graph TD
     RelevanceScore -->|All Gates Pass| PassedOutput
 
     HarmSafety -.->|Violation| Quarantine
-    Groundedness -.->|Score < 4.0| Quarantine
+    Groundedness -.->|"Score < 4.0"| Quarantine
     PHIScanner -.->|PHI Token Detected| Quarantine
 ```
 

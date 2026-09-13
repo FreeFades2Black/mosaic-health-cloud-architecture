@@ -44,8 +44,8 @@ graph TD
 
     Decision{"Risk Evaluation"}
     Scorecard --> Decision
-    Decision -->|Score >= 75: Low Risk| FastTrack["Fast-Track Wave Migration"]
-    Decision -->|Score < 75: High Risk| QuarantineLane["Quarantine Staging & Remediation"]
+    Decision -->|"Score >= 75: Low Risk"| FastTrack["Fast-Track Wave Migration"]
+    Decision -->|"Score < 75: High Risk"| QuarantineLane["Quarantine Staging & Remediation"]
 ```
 
 ---
