@@ -92,10 +92,10 @@ If any critical failure threshold is exceeded during the cutover window, the aut
 flowchart TD
     CutoverStart[Cutover Execution Window Initiated] --> Monitor{Continuous Metric Monitoring}
 
-    Monitor -->|Condition A: Database Lag > 120s| EngageRollback[Engage Automated Rollback]
-    Monitor -->|Condition B: Clinical Interface Error Rate > 0.5%| EngageRollback
-    Monitor -->|Condition C: Network Packet Loss > 2% for 5 mins| EngageRollback
-    Monitor -->|All Metrics Nominal| Validate[Clinical Workflow Validation Passed]
+    Monitor -->|"Condition A: Database Lag > 120s"| EngageRollback[Engage Automated Rollback]
+    Monitor -->|"Condition B: Clinical Interface Error Rate > 0.5%"| EngageRollback
+    Monitor -->|"Condition C: Network Packet Loss > 2% for 5 mins"| EngageRollback
+    Monitor -->|"All Metrics Nominal"| Validate[Clinical Workflow Validation Passed]
 
     Validate --> Finalize[Commit Cutover & Update DNS Records]
 
