@@ -17,7 +17,7 @@ flowchart TD
     end
 
     subgraph DataPlane ["2. Azure Health Data Services"]
-        Portal -->|FHIR R4 Rest API (mTLS)| FHIR["Azure Managed FHIR Service<br/>(Cosmos DB Multi-Region Spine)"]
+        Portal -->|"FHIR R4 Rest API (mTLS)"| FHIR["Azure Managed FHIR Service<br/>(Cosmos DB Multi-Region Spine)"]
         FHIR --> PatientResources["Patient, Observation, Condition Records"]
     end
 

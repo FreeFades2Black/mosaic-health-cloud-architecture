@@ -36,7 +36,7 @@ graph TD
     EntraTenant --> CAEngine
     CAEngine --> PIMService
 
-    PIMService -->|Time-Bound RBAC Token (Max 4h)| AzurePortal
+    PIMService -->|"Time-Bound RBAC Token (Max 4h)"| AzurePortal
     PIMService -->|SCIM Identity Federation| LakehouseUC
     PIMService -->|OIDC / OAuth2 Bearer Token| ClinicalApp
 ```
