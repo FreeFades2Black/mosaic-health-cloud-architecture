@@ -25,7 +25,7 @@ jobs:
           allow-no-subscriptions: true
 
       - name: Provision Core Health Resource Group
-        uses: azure/cli@v2
+        uses: azure/cli@v3
         with:
           inlineScript: |
             CURRENT_SUB=$(az account show --query "id" -o tsv 2>/dev/null || true)
