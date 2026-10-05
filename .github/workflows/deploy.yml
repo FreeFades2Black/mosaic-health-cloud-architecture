@@ -27,6 +27,7 @@ jobs:
   test-and-validate:
     name: Run Architecture & Governance Validation Tests
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v7
@@ -55,6 +56,7 @@ jobs:
     needs: test-and-validate
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v7
