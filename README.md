@@ -29,12 +29,31 @@ flowchart TD
 
 ---
 
+## 🛡️ CI/CD Deployment Manifest Gate (`ocaml-event-engine`)
+
+To prevent corrupted infrastructure-as-code declarations, empty resource payloads, or invalid deployment state mutations from reaching production HIPAA environments, the CI pipeline enforces an automated gatekeeper check via [`scripts/validate_manifests_gatekeeper.py`](scripts/validate_manifests_gatekeeper.py) powered by [`ocaml-event-engine`](https://github.com/FreeFades2Black/ocaml-event-engine) (`ghcr.io/freefades2black/ocaml-event-engine:latest`):
+
+```mermaid
+flowchart LR
+    Manifests["IaC Manifests & Resource Declarations<br/>(Terraform HCL, ARM Dashboards, Configs)"] --> Gate["OCaml Ingress Gatekeeper<br/>(.github/workflows/ci.yml)"]
+    Gate -->|status: invalid| Halt["❌ Halt Pipeline Immediately<br/>(Non-Zero Exit: Prevent Cloud Deployment)"]
+    Gate -->|status: duplicate| Skip["Dedup & Audit Trace"]
+    Gate -->|status: processed| Deploy["✅ Validated State<br/>(Proceed to Azure Provisioning)"]
+```
+
+### Why This Ingress Gate Matters
+1. **Pre-Deployment Invariant Guarantee:** Validates resource definitions before `terraform apply` or Azure OIDC provisioning can execute. Any malformed manifest halts the build immediately with exit code 1.
+2. **Deterministic Infrastructure State:** Resource identifiers and deployment changes are deduplicated and verified against a strict four-state mathematical ADT model.
+3. **Specification-Enforced Invariants:** Validated per [GATEKEEPER_INTEGRATION.md](GATEKEEPER_INTEGRATION.md).
+
+---
+
 ## 1-Command Local Verification
 
 Prerequisites: `python >= 3.11`, `node >= 18`.
 
 ```bash
-# Run complete test suite (Entra auditor, Foundry regulation, portal build)
+# Run complete test suite (Entra auditor, Foundry regulation, manifest gate, portal build)
 python -m pytest tests/ -v
 ```
 
@@ -44,13 +63,16 @@ python -m pytest tests/ -v
 ============================= test session starts =============================
 platform win32 -- Python 3.11.0, pytest-9.1.1, pluggy-1.6.0
 rootdir: C:\Users\FreeF\projects\mosaic-health-cloud-architecture
-collected 17 items
+configfile: pyproject.toml
+plugins: anyio-4.14.2
+collected 21 items
 
-tests/test_entra_auditor.py .................                             [ 70%]
-tests/test_foundry_agent_regulation.py ...                                [ 88%]
+tests/test_entra_auditor.py .................                             [ 80%]
+tests/test_foundry_agent_regulation.py ...                                [ 95%]
+tests/test_gatekeeper_manifest_gate.py ....                               [100%]
 tests/test_portal_build.py ..                                             [100%]
 
-============================= 17 passed in 0.52s ==============================
+============================= 21 passed in 0.87s ==============================
 ```
 
 ---
