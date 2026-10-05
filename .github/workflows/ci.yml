@@ -14,16 +14,17 @@ jobs:
   manifest-validation-gate:
     name: OCaml Gatekeeper Manifest Validation Gate
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Pull OCaml Event Engine Gatekeeper
         run: |
           docker pull ghcr.io/freefades2black/ocaml-event-engine:latest || true
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.11'
 
@@ -35,12 +36,13 @@ jobs:
     name: Architecture & Governance Validation Tests
     needs: manifest-validation-gate
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.11'
           cache: 'pip'
