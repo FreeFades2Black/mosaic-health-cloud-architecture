@@ -14,6 +14,7 @@ jobs:
   manifest-validation-gate:
     name: OCaml Gatekeeper Manifest Validation Gate
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v7
@@ -35,6 +36,7 @@ jobs:
     name: Architecture & Governance Validation Tests
     needs: manifest-validation-gate
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v7
