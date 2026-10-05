@@ -21,6 +21,7 @@ jobs:
   test-azure-oidc:
     name: Verify GitHub Actions -> Azure Entra ID Connection
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Checkout Codebase
