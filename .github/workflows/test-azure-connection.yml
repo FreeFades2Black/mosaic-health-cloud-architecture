@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Checkout Codebase
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Authenticate to Azure via OpenID Connect (OIDC)
         uses: azure/login@v2
